@@ -10,8 +10,6 @@ import control.ParaUi;
 public class Borrar implements Borrable, ActionListener {
 
 	ParaUi paraui;
-	// esta lista la meto hasta que metamos todas las conexiones y pueda llegar a
-	// ella, habria que ir a paraui/juego/datos/lista
 	ArrayList<Color> lista = paraui.getJuego().getDatos().getLista().getListaColores();
 	int intentos = paraui.getJuego().getIntentosBorrar();
 
