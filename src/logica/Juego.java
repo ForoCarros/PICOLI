@@ -10,7 +10,7 @@ public class Juego<T> implements Jugable<T>{
 	
 	Datos datos;
 	Constantes constantes;
-	int monedas=0;
+	private int monedas=0;
 	
 	@Override
 	public void disminuirIntentos(int c) {
