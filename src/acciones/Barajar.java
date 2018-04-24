@@ -16,7 +16,6 @@ import modelo.Pila;
 public class Barajar implements ActionListener, Barajable {
 
 	ParaUi paraui;
-	ArrayList listaDummy=paraui.getJuego().getDatos().getListaAuxiliar().getListaColores();
 
 	public Barajar(ParaUi paraui) {
 		super();
@@ -24,31 +23,31 @@ public class Barajar implements ActionListener, Barajable {
 	}
 
 	@Override
-	public void barajar() {
+	public <T> void barajar(ArrayList<T> listaDummy) {
 		Collections.shuffle((List<?>) listaDummy);
 	}
 
-	// haber que pasa aqui ahora...
 	@Override
-	public void volcarPilasEnLista() {
-		for (Color color : paraui.getJuego().getDatos().getPilaUno().getPilaColores()) {
-			listaDummy.add(color);
+	public <T> void volcarPilasEnLista(ArrayList<T> listaDummy) {
+		for (Colores color : paraui.getJuego().getDatos().getPilaUno().getPilaColores()) {
+			listaDummy.add((T) color);
 		}
-		for (Color color : paraui.getJuego().getDatos().getPilaDos().getPilaColores()) {
-			listaDummy.add(color);
+		for (Colores color : paraui.getJuego().getDatos().getPilaDos().getPilaColores()) {
+			listaDummy.add((T) color);
 		}
-		paraui.getJuego().getDatos().getPilaUno().vaciarPila(paraui.getJuego().getDatos().getPilaUno());
-		paraui.getJuego().getDatos().getPilaDos().vaciarPila(paraui.getJuego().getDatos().getPilaDos());
+		paraui.getJuego().getDatos().getPilaUno().getPilaColores().removeAllElements();
+		paraui.getJuego().getDatos().getPilaDos().getPilaColores().removeAllElements();
 
 	}
 
-	public void volcarListaEnPilas() {
-		int i=0;
+	@Override
+	public <T> void volcarListaEnPilas(ArrayList<T> listaDummy) {
+		int i = 0;
 		for (int j = 0; j < listaDummy.size(); j++) {
-			if (i%2==0) {
-				paraui.getJuego().getDatos().getPilaUno().introducir((Color) listaDummy.get(i));
-			}else {
-				paraui.getJuego().getDatos().getPilaDos().introducir((Color) listaDummy.get(i));
+			if (i % 2 == 0) {
+				paraui.getJuego().getDatos().getPilaUno().introducir((Colores) listaDummy.get(i));
+			} else {
+				paraui.getJuego().getDatos().getPilaDos().introducir((Colores) listaDummy.get(i));
 			}
 			i++;
 		}
@@ -56,10 +55,11 @@ public class Barajar implements ActionListener, Barajable {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		volcarPilasEnLista();
-		barajar();
-		volcarListaEnPilas();
-
+		volcarPilasEnLista(null);
+		barajar(null);
+		volcarListaEnPilas(null);
+// hay que implemetar los botones y demas....
 	}
+
 
 }
