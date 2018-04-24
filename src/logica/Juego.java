@@ -33,11 +33,17 @@ public class Juego<T> implements Jugable<T>{
 	@Override
 	public boolean comprobarListaLlena() {
 		//El primer getLista coge el objeto Lista. El segundo coge el arrayList de Lista.
-		if (datos.getLista().getLista().size()>=constantes.TAMANO_LISTA) {
+		if (datos.getLista().getListaColores().size()>=constantes.TAMANO_LISTA) {
 			return true;
 		}
 		return false;
 	}
+	
+	public Datos getDatos() {
+		return this.datos;
+	}
+	
+	
 	
 	
 

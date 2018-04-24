@@ -46,7 +46,7 @@ public class Lista<T> {
 		listaAux.clear();
 	}
 
-	public ArrayList<T> getLista() {
+	public ArrayList<T> getListaColores() {
 		return lista;
 	}
 }
