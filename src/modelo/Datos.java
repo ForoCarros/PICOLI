@@ -41,6 +41,21 @@ public class Datos {
 	public Lista<Colores> getListaAuxiliar() {
 		return listaAuxiliar;
 	}
+	/**
+	 * devuelve  una de las dos pilas
+	 * @return
+	 */
+	public Pila<Colores> seleccionarPilaAleatoria() {
+		int random = (int) (Math.random() * 1) ;
+		
+		if (random == 0) {
+			return getPilaUno();
+		}else {
+			return getPilaDos();
+		}
+		
+		
+	}
 	
 	
 }
