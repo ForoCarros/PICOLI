@@ -25,11 +25,11 @@ public class Pila<T> {
 	/**
 	 * Introduce el elemento en la cola.
 	 * 
-	 * @param color
+	 * @param colores
 	 *            el elemento a introducir.
 	 */
-	public void introducir(Color color) {
-		pila.push((T) color);
+	public void introducir(T colores) {
+		pila.push(colores);
 	}
 
 	/**
