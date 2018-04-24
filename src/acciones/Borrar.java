@@ -6,14 +6,12 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import control.ParaUi;
+import modelo.Colores;
 
 public class Borrar implements Borrable, ActionListener {
 
 	ParaUi paraui;
-	// esta lista la meto hasta que metamos todas las conexiones y pueda llegar a
-	// ella, habria que ir a paraui/juego/datos/lista
-	ArrayList<Color> lista = paraui.getJuego().getDatos().getLista().getListaColores();
-	int intentos = paraui.getJuego().getIntentosBorrar();
+	//int intentos = paraui.getJuego().getIntentosBorrar();
 
 	public Borrar(ParaUi paraui) {
 		super();
@@ -21,25 +19,23 @@ public class Borrar implements Borrable, ActionListener {
 	}
 
 	@Override
-	public void buscarColor(Color c) {
-		for (Color color : lista) {
-			if (color.equals(c)) {
-				borrarColor(color);
+	public void buscarColor(Colores rojo, ArrayList<Colores> lista) {
+		for (Colores color : lista) {
+			if (color.equals(rojo)) {
+				borrarColor(color,lista);
 			}
 		}
 	}
 
 	@Override
-	public void borrarColor(Color color) {
+	public void borrarColor(Colores color, ArrayList<Colores> lista) {
 		lista.remove(color);
-		paraui.getJuego().disminuirIntentos(intentos);
+		//paraui.getJuego().disminuirIntentos(intentos);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		buscarColor(null);
-		borrarColor(null);
-
+		//buscarColor(null);
 	}
 
 }
