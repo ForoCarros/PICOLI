@@ -36,4 +36,18 @@ public class Pila<T> {
 	public T obtener() {
 		return null;
 	}
+	
+	/**
+	 * Vuelca los elementos de la pila en una lista.
+	 */
+	public void vaciarPila(Stack<T> pila) {
+		
+	}
+	
+	/**
+	 * Vuelca los elementos de la lista en las colas de forma equilibrada.
+	 */
+	public void llenarPila() {
+		
+	}
 }
