@@ -6,6 +6,7 @@ import java.util.Iterator;
 public class Lista<T> {
 
 	private ArrayList<T> lista = new ArrayList<>();
+	
 
 	/**
 	 * Introduce un elemento en la lista.
