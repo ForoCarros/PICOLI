@@ -8,14 +8,13 @@ public class Datos {
 	private Pila<Colores> pilaDos;
 	private Historial historial;
 
-	public Datos(Cola<Colores> cola, Lista<Colores> lista, Pila<Colores> pilaUno, Pila<Colores> pilaDos,
-			Historial historial) {
+	public Datos() {
 		super();
-		this.cola = cola;
-		this.lista = lista;
-		this.pilaUno = pilaUno;
-		this.pilaDos = pilaDos;
-		this.historial = historial;
+		this.cola = new Cola<>();
+		this.lista = new Lista<>();
+		this.pilaUno = new Pila<>();
+		this.pilaDos = new Pila<>();
+		this.historial = new Historial<>() ;
 	}
 
 	public Cola<Colores> getCola() {

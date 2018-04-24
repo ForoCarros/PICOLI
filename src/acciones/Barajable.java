@@ -13,6 +13,11 @@ public interface Barajable<T> {
 	/**
 	 * vuelca las pilas en una lisa auxiliar
 	 */
-	public void volcarPilaenLista();
+	public void volcarPilasEnLista();
+	
+	/**
+	 * vualca la lista dummy en las pilas
+	 */
+	public void volcarListaEnPilas();
 
 }
