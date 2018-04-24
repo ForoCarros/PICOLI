@@ -42,6 +42,11 @@ public class Juego<T> implements Jugable<T>{
 	public Datos getDatos() {
 		return this.datos;
 	}
+
+	public int getMonedas() {
+		return monedas;
+	}
+	
 	
 	
 	
