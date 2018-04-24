@@ -24,9 +24,9 @@ public class Lista<T> {
 	 * @param rango
 	 *            longitud a partir de inicio.
 	 */
-	public boolean comprobarIguales(int inicio, int rango) {
+	public boolean comprobarIguales() {
 
-		if (!lista.isEmpty()) {
+		if (lista.size()>3) {
 			if (lista.get(0).equals(lista.get(1)) && lista.get(0).equals(lista.get(2))) {
 				return true;
 			}
