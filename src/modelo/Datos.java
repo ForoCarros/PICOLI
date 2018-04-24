@@ -7,6 +7,7 @@ public class Datos {
 	private Pila<Colores> pilaUno;
 	private Pila<Colores> pilaDos;
 	private Historial historial;
+	private Lista<Colores> listaAuxiliar;
 
 	public Datos() {
 		super();
@@ -35,6 +36,10 @@ public class Datos {
 
 	public Historial getHistorial() {
 		return historial;
+	}
+
+	public Lista<Colores> getListaAuxiliar() {
+		return listaAuxiliar;
 	}
 	
 	
