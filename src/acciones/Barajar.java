@@ -28,6 +28,7 @@ public class Barajar implements ActionListener, Barajable {
 		Collections.shuffle((List<?>) listaDummy);
 	}
 
+	// haber que pasa aqui ahora...
 	@Override
 	public void volcarPilasEnLista() {
 		for (Color color : paraui.getJuego().getDatos().getPilaUno().getPilaColores()) {
