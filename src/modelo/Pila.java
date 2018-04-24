@@ -1,12 +1,12 @@
 package modelo;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class Pila<T> {
-	public int seleccionarPilaAleatoria() {
-		return 0;
-	}
+	Stack<T> pila = new Stack<>();
+	
 
 	/**
 	 * Comprueba si la pila POR PARÁMETRO está llena.
@@ -16,6 +16,9 @@ public class Pila<T> {
 	 * @return true si está llena, false si no.
 	 */
 	public boolean comprobarLlena(Stack<T> pila) {
+		if (pila.size() == utiles.Constantes.TAMANO_PILA) {
+			return true;
+		}
 		return false;
 	}
 
@@ -26,7 +29,7 @@ public class Pila<T> {
 	 *            el elemento a introducir.
 	 */
 	public void introducir(Color color) {
-
+		pila.push((T) color);
 	}
 
 	/**
@@ -35,20 +38,17 @@ public class Pila<T> {
 	 * @return el primer elemento.
 	 */
 	public T obtener() {
-		return null;
+
+		return pila.elementAt(0);
+
 	}
-	
+
 	/**
-	 * Vuelca los elementos de la pila en una lista.
+	 * devuelve la pila
+	 * 
+	 * @return pila
 	 */
-	public void vaciarPila(Pila<Colores> pila) {
-		
-	}
-	
-	/**
-	 * Vuelca los elementos de la lista en las colas de forma equilibrada.
-	 */
-	public void llenarPila() {
-		
+	public Stack<T> getPilaColores() {
+		return (Stack<T>) pila;
 	}
 }
