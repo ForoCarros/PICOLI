@@ -15,6 +15,6 @@ public interface Borrable {
 	/**
 	 * ELimina el elemento en la lista.
 	 */
-	public void borrarColor();
+	public void borrarColor(Color c);
 
 }
