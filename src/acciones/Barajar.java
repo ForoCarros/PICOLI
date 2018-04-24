@@ -11,11 +11,12 @@ import java.util.Stack;
 import control.ParaUi;
 import modelo.Colores;
 import modelo.Lista;
+import modelo.Pila;
 
 public class Barajar implements ActionListener, Barajable {
 
 	ParaUi paraui;
-	Lista listaDummy = new Lista();
+	ArrayList listaDummy=paraui.getJuego().getDatos().getListaAuxiliar().getLista();
 
 	public Barajar(ParaUi paraui) {
 		super();
@@ -29,11 +30,11 @@ public class Barajar implements ActionListener, Barajable {
 
 	@Override
 	public void volcarPilasEnLista() {
-		for (Color color : paraui.getJuego().getDatos().getPilaUno()) {
-			listaDummy.introducir(color);
+		for (Color color : paraui.getJuego().getDatos().getPilaUno().getPilaColores()) {
+			listaDummy.add(color);
 		}
-		for (Color color : paraui.getJuego().getDatos().getPilaDos()) {
-			listaDummy.introducir(color);
+		for (Color color : paraui.getJuego().getDatos().getPilaDos().getPilaColores()) {
+			listaDummy.add(color);
 		}
 		paraui.getJuego().getDatos().getPilaUno().vaciarPila(paraui.getJuego().getDatos().getPilaUno());
 		paraui.getJuego().getDatos().getPilaDos().vaciarPila(paraui.getJuego().getDatos().getPilaDos());
@@ -42,11 +43,11 @@ public class Barajar implements ActionListener, Barajable {
 
 	public void volcarListaEnPilas() {
 		int i=0;
-		for (Color color : listaDummy) {
+		for (int j = 0; j < listaDummy.size(); j++) {
 			if (i%2==0) {
-				paraui.getJuego().getDatos().getPilaUno().introducir(color);
+				paraui.getJuego().getDatos().getPilaUno().introducir((Color) listaDummy.get(i));
 			}else {
-				paraui.getJuego().getDatos().getPilaDos().introducir(color);
+				paraui.getJuego().getDatos().getPilaDos().introducir((Color) listaDummy.get(i));
 			}
 			i++;
 		}

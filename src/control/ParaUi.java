@@ -1,5 +1,6 @@
 package control;
 
+import acciones.Iniciador;
 import logica.Juego;
 
 public class ParaUi {
