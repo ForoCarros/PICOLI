@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 public class Lista<T> {
 
-	ArrayList<T> lista = new ArrayList<>();
+	private ArrayList<T> lista = new ArrayList<>();
 
 	/**
 	 * Introduce un elemento en la lista.
@@ -39,11 +39,14 @@ public class Lista<T> {
 	 * Lista creada para guardar los elementos de las dos pilas a la hora de barajar
 	 * 
 	 * @param listaAux
-	 *           la lista auxiliar
+	 *            la lista auxiliar
 	 * 
 	 */
 	public void vaciarListaAuxiliar(ArrayList<T> listaAux) {
 		listaAux.clear();
 	}
 
+	public ArrayList<T> getLista() {
+		return lista;
+	}
 }
