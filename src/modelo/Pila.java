@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.Color;
 import java.util.Stack;
 
 public class Pila<T> {
@@ -21,10 +22,10 @@ public class Pila<T> {
 	/**
 	 * Introduce el elemento en la cola.
 	 * 
-	 * @param elemento
+	 * @param color
 	 *            el elemento a introducir.
 	 */
-	public void introducir(Stack<T> elemento) {
+	public void introducir(Color color) {
 
 	}
 
@@ -40,7 +41,7 @@ public class Pila<T> {
 	/**
 	 * Vuelca los elementos de la pila en una lista.
 	 */
-	public void vaciarPila(Stack<T> pila) {
+	public void vaciarPila(Pila<Colores> pila) {
 		
 	}
 	
