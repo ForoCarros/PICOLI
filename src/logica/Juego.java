@@ -9,7 +9,7 @@ import utiles.Constantes;
 public class Juego<T> implements Jugable<T>{
 	
 	Datos datos;
-	Constantes constantes;
+	int intentosBorrar=Constantes.PETICION_BORRAR_MAX;
 	private int monedas=0;
 	
 	@Override
@@ -19,7 +19,7 @@ public class Juego<T> implements Jugable<T>{
 
 	@Override
 	public boolean comprobarGanador() {
-		if (monedas>=constantes.CANTIDAD_MAX_MONEDAS) {
+		if (monedas>=Constantes.CANTIDAD_MAX_MONEDAS) {
 			return true;
 		}
 		return false;
@@ -34,7 +34,7 @@ public class Juego<T> implements Jugable<T>{
 	public boolean comprobarListaLlena() {
 
 		//El primer getLista coge el objeto Lista. El segundo coge el arrayList de Lista.
-		if (datos.getLista().getListaColores().size()>=constantes.TAMANO_LISTA) {
+		if (datos.getLista().getListaColores().size()>=Constantes.TAMANO_LISTA) {
 			return true;
 		}
 		return false;
@@ -46,6 +46,10 @@ public class Juego<T> implements Jugable<T>{
 
 	public int getMonedas() {
 		return monedas;
+	}
+
+	public int getIntentosBorrar() {
+		return intentosBorrar;
 	}
 	
 	

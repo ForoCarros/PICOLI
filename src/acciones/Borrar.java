@@ -12,7 +12,8 @@ public class Borrar implements Borrable, ActionListener {
 	ParaUi paraui;
 	// esta lista la meto hasta que metamos todas las conexiones y pueda llegar a
 	// ella, habria que ir a paraui/juego/datos/lista
-	ArrayList<Color> lista = new ArrayList<>();
+	ArrayList<Color> lista = paraui.getJuego().getDatos().getLista().getListaColores();
+	int intentos = paraui.getJuego().getIntentosBorrar();
 
 	public Borrar(ParaUi paraui) {
 		super();
@@ -31,12 +32,13 @@ public class Borrar implements Borrable, ActionListener {
 	@Override
 	public void borrarColor(Color color) {
 		lista.remove(color);
-		//paraui.juego.disminuirIntentos;
+		paraui.getJuego().disminuirIntentos(intentos);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
+		buscarColor(null);
+		borrarColor(null);
 
 	}
 

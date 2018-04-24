@@ -16,7 +16,7 @@ import modelo.Pila;
 public class Barajar implements ActionListener, Barajable {
 
 	ParaUi paraui;
-	ArrayList listaDummy=paraui.getJuego().getDatos().getListaAuxiliar().getLista();
+	ArrayList listaDummy=paraui.getJuego().getDatos().getListaAuxiliar().getListaColores();
 
 	public Barajar(ParaUi paraui) {
 		super();
