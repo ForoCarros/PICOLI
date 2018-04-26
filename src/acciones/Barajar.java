@@ -28,38 +28,36 @@ public class Barajar implements ActionListener, Barajable {
 	}
 
 	@Override
-	public <T> void volcarPilasEnLista(ArrayList<T> listaDummy) {
-		for (Colores color : paraui.getJuego().getDatos().getPilaUno().getPilaColores()) {
-			listaDummy.add((T) color);
+	public <T> void volcarPilasEnLista(ArrayList<T> listaDummy, Stack<T> pilaOne, Stack<T> pilaTwo) {
+		for (T color : pilaOne) {
+			listaDummy.add(color);
 		}
-		for (Colores color : paraui.getJuego().getDatos().getPilaDos().getPilaColores()) {
-			listaDummy.add((T) color);
+		for (T color : pilaTwo) {
+			listaDummy.add(color);
 		}
-		paraui.getJuego().getDatos().getPilaUno().getPilaColores().removeAllElements();
-		paraui.getJuego().getDatos().getPilaDos().getPilaColores().removeAllElements();
+		pilaOne.removeAllElements();
+		pilaTwo.removeAllElements();
 
 	}
 
 	@Override
-	public <T> void volcarListaEnPilas(ArrayList<T> listaDummy) {
-		int i = 0;
-		for (int j = 0; j < listaDummy.size(); j++) {
+	public <T> void volcarListaEnPilas(ArrayList<T> listaDummy, Stack<T> pilaOne, Stack<T> pilaTwo) {
+		for (int i = 0; i < listaDummy.size(); i++) {
 			if (i % 2 == 0) {
-				paraui.getJuego().getDatos().getPilaUno().introducir((Colores) listaDummy.get(i));
+				pilaOne.add(listaDummy.get(i));
 			} else {
-				paraui.getJuego().getDatos().getPilaDos().introducir((Colores) listaDummy.get(i));
+				pilaTwo.add(listaDummy.get(i));
 			}
-			i++;
 		}
+		listaDummy.clear();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		volcarPilasEnLista(null);
+		volcarPilasEnLista(null, null, null);
 		barajar(null);
-		volcarListaEnPilas(null);
-// hay que implemetar los botones y demas....
+		volcarListaEnPilas(null, null, null);
+		// hay que implemetar los botones y demas....
 	}
-
 
 }
