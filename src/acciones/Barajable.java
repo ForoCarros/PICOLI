@@ -17,12 +17,12 @@ public interface Barajable {
 	 * vuelca las pilas en una lisa auxiliar
 	 * @param <T>
 	 */
-	public <T> void volcarPilasEnLista(ArrayList<T> lista);
+	public <T> void volcarPilasEnLista(ArrayList<T> lista, Stack<T> pilaOne, Stack<T> pilaTwo);
 	
 	/**
 	 * vualca la lista dummy en las pilas
 	 * @param <T>
 	 */
-	public <T> void volcarListaEnPilas(ArrayList<T> lista);
+	public <T> void volcarListaEnPilas(ArrayList<T> lista, Stack<T> pilaOne, Stack<T> pilaTwo);
 
 }

@@ -3,6 +3,7 @@ package test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
@@ -22,7 +23,7 @@ class BarajableTest {
 	ParaUi paraui=new ParaUi(juego, iniciador);
 	Barajar instancia = new Barajar(paraui);
 
-	@Test
+	@Ignore
 	void barajar() {
 		ArrayList<Integer> lista= new ArrayList<>();
 		ArrayList<Integer> listaDos= new ArrayList<>();
@@ -37,11 +38,30 @@ class BarajableTest {
 
 	@Ignore
 	void volcarPilasEnLista() {
-		fail("Not yet implemented");
+		Stack<Colores> pilaOne=datos.getPilaUno().getPilaColores();
+		Stack<Colores> pilaTwo=datos.getPilaDos().getPilaColores();
+		ArrayList<Colores> lista= new ArrayList<>();
+		ArrayList<Colores> listaDos= new ArrayList<>();
+		listaDos.add(Colores.amarillo);
+		listaDos.add(Colores.azul);
+		pilaOne.add(Colores.amarillo);
+		pilaTwo.add(Colores.azul);
+		assertTrue(lista.size()==0);
+		instancia.volcarPilasEnLista(lista, pilaOne, pilaTwo);
+		assertEquals(lista, listaDos);
 	}
 	
-	@Ignore
+	@Test
 	void volcarListaEnPilas() {
-		fail("Not yet implemented");
+		ArrayList<Colores> lista= new ArrayList<>();
+		Stack<Colores> pilaOne=datos.getPilaUno().getPilaColores();
+		Stack<Colores> pilaTwo=datos.getPilaDos().getPilaColores();
+		lista.add(Colores.amarillo);
+		lista.add(Colores.azul);
+		lista.add(Colores.verde);
+		assertEquals(pilaOne.size(),pilaTwo.size());
+		instancia.volcarListaEnPilas(lista, pilaOne, pilaTwo);
+		assertTrue(lista.size()==0);
+		assertNotEquals(pilaOne.size(),pilaTwo.size());
 	}
 }
