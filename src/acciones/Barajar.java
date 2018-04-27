@@ -16,7 +16,6 @@ import modelo.Pila;
 public class Barajar implements ActionListener, Barajable {
 
 	ParaUi paraui;
-	ArrayList listaDummy=paraui.getJuego().getDatos().getListaAuxiliar().getLista();
 
 	public Barajar(ParaUi paraui) {
 		super();
@@ -24,41 +23,41 @@ public class Barajar implements ActionListener, Barajable {
 	}
 
 	@Override
-	public void barajar() {
+	public <T> void barajar(ArrayList<T> listaDummy) {
 		Collections.shuffle((List<?>) listaDummy);
 	}
 
 	@Override
-	public void volcarPilasEnLista() {
-		for (Color color : paraui.getJuego().getDatos().getPilaUno().getPilaColores()) {
+	public <T> void volcarPilasEnLista(ArrayList<T> listaDummy, Stack<T> pilaOne, Stack<T> pilaTwo) {
+		for (T color : pilaOne) {
 			listaDummy.add(color);
 		}
-		for (Color color : paraui.getJuego().getDatos().getPilaDos().getPilaColores()) {
+		for (T color : pilaTwo) {
 			listaDummy.add(color);
 		}
-		paraui.getJuego().getDatos().getPilaUno().vaciarPila(paraui.getJuego().getDatos().getPilaUno());
-		paraui.getJuego().getDatos().getPilaDos().vaciarPila(paraui.getJuego().getDatos().getPilaDos());
+		pilaOne.removeAllElements();
+		pilaTwo.removeAllElements();
 
 	}
 
-	public void volcarListaEnPilas() {
-		int i=0;
-		for (int j = 0; j < listaDummy.size(); j++) {
-			if (i%2==0) {
-				paraui.getJuego().getDatos().getPilaUno().introducir((Color) listaDummy.get(i));
-			}else {
-				paraui.getJuego().getDatos().getPilaDos().introducir((Color) listaDummy.get(i));
+	@Override
+	public <T> void volcarListaEnPilas(ArrayList<T> listaDummy, Stack<T> pilaOne, Stack<T> pilaTwo) {
+		for (int i = 0; i < listaDummy.size(); i++) {
+			if (i % 2 == 0) {
+				pilaOne.add(listaDummy.get(i));
+			} else {
+				pilaTwo.add(listaDummy.get(i));
 			}
-			i++;
 		}
+		listaDummy.clear();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		volcarPilasEnLista();
-		barajar();
-		volcarListaEnPilas();
-
+		volcarPilasEnLista(null, null, null);
+		barajar(null);
+		volcarListaEnPilas(null, null, null);
+		// hay que implemetar los botones y demas....
 	}
 
 }

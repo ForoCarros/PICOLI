@@ -1,5 +1,6 @@
 package modelo;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -47,7 +48,7 @@ public class Lista<T> {
 		listaAux.clear();
 	}
 
-	public ArrayList<T> getListaColores() {
-		return lista;
+	public ArrayList<Colores> getListaColores() {
+		return (ArrayList<Colores>) lista;
 	}
 }
