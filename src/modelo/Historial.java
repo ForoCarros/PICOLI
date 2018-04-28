@@ -2,8 +2,6 @@ package modelo;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Iterator;
-
 import utiles.Constantes;
 
 public class Historial<T> implements Historiable<T> {
@@ -11,7 +9,6 @@ public class Historial<T> implements Historiable<T> {
 	int numComprobaciones = Constantes.TAMANO_HISTORICO;
 	private ArrayList<T> historial;
 	private ArrayList<Colores> ultimosColores;
-	
 	
 	public ArrayList<T> comprobarHistorial(Cola<T> e) {
 		ArrayDeque<T> cola = (ArrayDeque<T>) e.getCollectionCola();
