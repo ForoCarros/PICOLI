@@ -6,7 +6,7 @@ public class Datos {
 	private Lista<Colores> lista;
 	private Pila<Colores> pilaUno;
 	private Pila<Colores> pilaDos;
-	private Historial historial;
+	private Historial<Colores> historial;
 	private Lista<Colores> listaAuxiliar;
 
 	public Datos() {
@@ -34,7 +34,7 @@ public class Datos {
 		return pilaDos;
 	}
 
-	public Historial getHistorial() {
+	public Historial<Colores> getHistorial() {
 		return historial;
 	}
 
@@ -56,6 +56,5 @@ public class Datos {
 		
 		
 	}
-	
 	
 }

@@ -4,6 +4,6 @@ import java.util.ArrayList;
 
 public interface Historiable<T> {
 
-	public ArrayList<T> comprobarHistorial();
+	public ArrayList<T> comprobarHistorial(Cola<T> e);
 	
 }
