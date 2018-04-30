@@ -15,7 +15,7 @@ import modelo.Pila;
 
 public class Barajar implements ActionListener, Barajable {
 
-	ParaUi paraui;
+	private ParaUi paraui;
 
 	public Barajar(ParaUi paraui) {
 		super();
@@ -37,7 +37,6 @@ public class Barajar implements ActionListener, Barajable {
 		}
 		pilaOne.removeAllElements();
 		pilaTwo.removeAllElements();
-
 	}
 
 	@Override
@@ -50,14 +49,20 @@ public class Barajar implements ActionListener, Barajable {
 			}
 		}
 		listaDummy.clear();
+		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBarajar());
 	}
+	
+	// esto nose si deberia ser mas corto....xD
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		volcarPilasEnLista(null, null, null);
-		barajar(null);
-		volcarListaEnPilas(null, null, null);
-		// hay que implemetar los botones y demas....
+		volcarPilasEnLista(paraui.getJuego().getDatos().getListaAuxiliar().getListaColores(),
+				paraui.getJuego().getDatos().getPilaUno().getPilaColores(),
+				paraui.getJuego().getDatos().getPilaDos().getPilaColores());
+		barajar(paraui.getJuego().getDatos().getListaAuxiliar().getListaColores());
+		volcarListaEnPilas(paraui.getJuego().getDatos().getListaAuxiliar().getListaColores(),
+				paraui.getJuego().getDatos().getPilaUno().getPilaColores(),
+				paraui.getJuego().getDatos().getPilaDos().getPilaColores());
 	}
 
 }

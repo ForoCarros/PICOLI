@@ -7,7 +7,6 @@ import java.util.Iterator;
 public class Lista<T> {
 
 	private ArrayList<T> lista = new ArrayList<>();
-	
 
 	/**
 	 * Introduce un elemento en la lista.
@@ -28,7 +27,7 @@ public class Lista<T> {
 	 */
 	public boolean comprobarIguales() {
 
-		if (lista.size()>3) {
+		if (lista.size() > 3) {
 			if (lista.get(0).equals(lista.get(1)) && lista.get(0).equals(lista.get(2))) {
 				return true;
 			}

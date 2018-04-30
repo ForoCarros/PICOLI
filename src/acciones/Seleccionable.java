@@ -5,7 +5,12 @@ import java.awt.Color;
 import modelo.Colores;
 
 public interface Seleccionable {
-	
-	public Color seleccionarColor(Color c);
+
+	/**
+	 * selecciona un boton con el color elegido
+	 * 
+	 * @param c
+	 */
+	public void seleccionarColor(String c);
 
 }

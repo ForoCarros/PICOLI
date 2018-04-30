@@ -1,9 +1,12 @@
 package control;
 
+import java.awt.Color;
+
 import acciones.Iniciador;
 import logica.Juego;
+import vista.UI;
 
-public class ParaUi {
+public class ParaUi extends UI {
 
 	private Juego juego;
 	private Iniciador iniciador;
@@ -17,7 +20,23 @@ public class ParaUi {
 	public Juego getJuego() {
 		return juego;
 	}
-	
-	
+
+	/**
+	 * Devuelve el color seleccionado en el comboBox
+	 * @return
+	 */
+	public Color dameColorCombo() {
+		// Color color=this.getComboColor().getSelectedItem();
+		return null;
+	}
+
+	/**
+	 * hay que comprobar el historial de colores y validarlos añadiendolos a una
+	 * "lista" de los colores validos para poder seleccionar uno
+	 */
+	public void comprobarHistorialValidos() {
+		// TODO Auto-generated method stub
+
+	}
 
 }

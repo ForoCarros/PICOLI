@@ -23,11 +23,9 @@ class SeleccionableTest {
 	Seleccionar instancia =new Seleccionar(paraui);
 
 	@Test
-	void testSeleccionarColor(Color c) {
-		c=Color.GREEN;
+	void testSeleccionarColor(String c) {
 		assertNotNull(datos.getHistorial().comprobarHistorial(datos.getCola()));
 		assertFalse(datos.getHistorial().toString().isEmpty());
-		assertTrue(datos.getHistorial().comprobarHistorial(datos.getCola()).contains(c));
 	}
 
 }
