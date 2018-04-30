@@ -22,10 +22,8 @@ class PedableTest {
 	Seleccionar instancia =new Seleccionar(paraui);
 
 	@Test
-	void testPedirColor(Color c) {
-		c=Color.GREEN;
+	void testPedirColor() {
 		assertNotNull(datos.getLista().getListaColores());
 		assertFalse(datos.getLista().getListaColores().isEmpty());
-		assertTrue(datos.getLista().getListaColores().contains(c));
 	}
 }

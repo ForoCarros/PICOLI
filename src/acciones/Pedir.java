@@ -8,23 +8,23 @@ import control.ParaUi;
 
 public class Pedir implements Pedable, ActionListener {
 
-	ParaUi paraui;
-	
+	private ParaUi paraui;
+
 	public Pedir(ParaUi paraui) {
 		super();
 		this.paraui = paraui;
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
+	public void pedirColor() {
+		Color color = paraui.dameColorCombo();
+		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosPedir());
+		paraui.getJuego().realizarJugada(color);
 	}
 
 	@Override
-	public void pedirColor(Color c) {
-		// Necesitamos el comboBox con todos los colores y elegir un color
-
+	public void actionPerformed(ActionEvent e) {
+		pedirColor();
 	}
 
 }

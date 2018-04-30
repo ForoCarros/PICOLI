@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class Pila<T> {
-	Stack<T> pila = new Stack<>();
-	
+
+	private Stack<T> pila = new Stack<>();
 
 	/**
 	 * Comprueba si la pila POR PARÁMETRO está llena.
