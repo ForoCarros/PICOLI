@@ -24,11 +24,10 @@ class SeleccionableTest {
 
 	@Test
 	void testSeleccionarColor(Color c) {
-		ArrayList<Colores> lista= new ArrayList<>();
-		lista.add(Colores.rojo);
-		lista.add(Colores.verde);
-		instancia.seleccionarColor(Color.green);
-		
+		c=Color.GREEN;
+		assertNotNull(datos.getHistorial().comprobarHistorial(datos.getCola()));
+		assertFalse(datos.getHistorial().toString().isEmpty());
+		assertTrue(datos.getHistorial().comprobarHistorial(datos.getCola()).contains(c));
 	}
 
 }

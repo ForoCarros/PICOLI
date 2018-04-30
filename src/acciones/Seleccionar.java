@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import control.ParaUi;
+import modelo.Colores;
 
 public class Seleccionar implements ActionListener, Seleccionable {
 
@@ -16,9 +17,10 @@ public class Seleccionar implements ActionListener, Seleccionable {
 	}
 
 	@Override
-	public void seleccionarColor(Color c) {
+	public Color seleccionarColor(Color c) {
 		// Necesitamos el comboBox con los colores disponibles para seleccionar uno
 
+		return c;
 	}
 
 	@Override
