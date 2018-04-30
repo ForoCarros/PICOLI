@@ -9,7 +9,7 @@ import modelo.Colores;
 
 public class Seleccionar implements ActionListener, Seleccionable {
 
-	ParaUi paraui;
+	private ParaUi paraui;
 	
 	public Seleccionar(ParaUi paraui) {
 		super();
@@ -17,16 +17,36 @@ public class Seleccionar implements ActionListener, Seleccionable {
 	}
 
 	@Override
-	public Color seleccionarColor(Color c) {
-		// Necesitamos el comboBox con los colores disponibles para seleccionar uno
+	public void seleccionarColor(String color) {
+		Color colorDummy=comprobarColor(color);
+		paraui.getJuego().realizarJugada(colorDummy);
+	}
 
-		return c;
+	private Color comprobarColor(String color) {
+		Color colorDummy=null;
+		switch (color) {
+		case "rojo":
+			colorDummy=Color.red;
+			break;
+		case "amarillo":
+			colorDummy=Color.yellow;
+			break;
+		case "azul":
+			colorDummy=Color.blue;
+			break;
+		case "verde":
+			colorDummy=Color.green;
+			break;
+		case "naranja":
+			colorDummy=Color.orange;
+			break;
+		}
+		return colorDummy;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
-
+		paraui.comprobarHistorialValidos();
+		seleccionarColor(e.getSource().getClass().getName());
 	}
-
 }

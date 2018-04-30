@@ -32,7 +32,7 @@ class BorrableTest {
 		lista.add(Colores.rojo);
 		lista.add(Colores.verde);
 		listaDos.add(Colores.verde);
-		instancia.buscarColor(Colores.rojo, lista);
+		instancia.buscarColor("rojo", lista);
 		assertEquals(listaDos.size(), lista.size());
 	}
 	
