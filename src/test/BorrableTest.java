@@ -26,20 +26,18 @@ class BorrableTest {
 	
 	
 	@Test
-	void buscarColor() {
+	void testBuscarColor() {
 		ArrayList<Colores> lista= new ArrayList<>();
 		ArrayList<Colores> listaDos= new ArrayList<>();
 		lista.add(Colores.rojo);
 		lista.add(Colores.verde);
 		listaDos.add(Colores.verde);
 		instancia.buscarColor(Colores.rojo, lista);
-		System.out.println(lista);
-		System.out.println(listaDos);
 		assertEquals(listaDos.size(), lista.size());
 	}
 	
 	@Ignore
-	void borrarColor() {
+	void testBorrarColor() {
 		ArrayList<Colores> lista= new ArrayList<>();
 		lista.add(Colores.rojo);
 		instancia.borrarColor(Colores.rojo, lista);
