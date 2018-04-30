@@ -11,7 +11,6 @@ import modelo.Colores;
 public class Borrar implements Borrable, ActionListener {
 
 	ParaUi paraui;
-	//int intentos = paraui.getJuego().getIntentosBorrar();
 
 	public Borrar(ParaUi paraui) {
 		super();
@@ -35,7 +34,7 @@ public class Borrar implements Borrable, ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//buscarColor(null);
+		buscarColor(null, null);
 	}
 
 }
