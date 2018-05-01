@@ -35,7 +35,8 @@ public class ParaUi extends UI {
 
 	public ParaUi() {
 		super();
-		this.juego = new Juego<>();
+		this.datos = new Datos();
+		this.juego = new Juego<>(this.datos);
 		this.iniciador = new Iniciador(this.datos);
 		this.barajar = new Barajar(this);
 		this.listenerBarajar = new MALBarajar(this, this.datos, this.barajar);
@@ -49,7 +50,11 @@ public class ParaUi extends UI {
 	}
 
 	private void asignarListeners() {
-
+		this.btnColor1.addActionListener(listenerSeleccionar);
+		this.btnColor2.addActionListener(listenerSeleccionar);
+		this.btnColor3.addActionListener(listenerSeleccionar);
+		this.btnColor4.addActionListener(listenerSeleccionar);
+		this.btnColor5.addActionListener(listenerSeleccionar);
 	}
 
 	public Juego getJuego() {

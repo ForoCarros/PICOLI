@@ -119,6 +119,7 @@ public class UI extends JFrame {
 		panelColores.setLayout(gbl_panelColores);
 
 		btnColor1 = new JButton("col1");
+		btnColor1.setName("amarillo");
 		btnColor1.setOpaque(false);
 		GridBagConstraints gbc_btnColor1 = new GridBagConstraints();
 		gbc_btnColor1.insets = new Insets(0, 0, 5, 5);
@@ -128,6 +129,7 @@ public class UI extends JFrame {
 		panelColores.add(btnColor1, gbc_btnColor1);
 
 		btnColor2 = new JButton("col2");
+		btnColor2.setName("rojo");
 		btnColor2.setOpaque(false);
 		GridBagConstraints gbc_btnColor2 = new GridBagConstraints();
 		gbc_btnColor2.fill = GridBagConstraints.BOTH;
@@ -137,6 +139,7 @@ public class UI extends JFrame {
 		panelColores.add(btnColor2, gbc_btnColor2);
 
 		btnColor3 = new JButton("col3");
+		btnColor3.setName("verde");
 		btnColor3.setOpaque(false);
 		GridBagConstraints gbc_btnColor3 = new GridBagConstraints();
 		gbc_btnColor3.fill = GridBagConstraints.BOTH;
@@ -146,6 +149,7 @@ public class UI extends JFrame {
 		panelColores.add(btnColor3, gbc_btnColor3);
 
 		btnColor4 = new JButton("col4");
+		btnColor4.setName("azul");
 		btnColor4.setOpaque(false);
 		GridBagConstraints gbc_btnColor4 = new GridBagConstraints();
 		gbc_btnColor4.fill = GridBagConstraints.BOTH;
@@ -155,6 +159,7 @@ public class UI extends JFrame {
 		panelColores.add(btnColor4, gbc_btnColor4);
 
 		btnColor5 = new JButton("col5");
+		btnColor5.setName("naranja");
 		btnColor5.setOpaque(false);
 		GridBagConstraints gbc_btnColor5 = new GridBagConstraints();
 		gbc_btnColor5.fill = GridBagConstraints.BOTH;
