@@ -16,7 +16,7 @@ public class Juego<T> implements Jugable<T> {
 	private int intentosPedir = Constantes.PETICION_COLOR_MAX;
 	private int intentosBarajar = Constantes.PETICION_BARAJAR_MAX;
 	private int monedas = 0;
-	
+
 	public Juego(Datos datos) {
 		this.datos = datos;
 	}
@@ -77,7 +77,7 @@ public class Juego<T> implements Jugable<T> {
 		this.datos.getCola().introducir(color);
 		introducirColorPila();
 		introducirColorLista();
-		//comprobarDatosLista();
+		// comprobarDatosLista();
 	}
 
 	/**
@@ -98,13 +98,16 @@ public class Juego<T> implements Jugable<T> {
 	 * sus respectivas comprobaciones
 	 */
 	private void introducirColorLista() {
-		boolean pilaCorrecta = false;
-		while (!pilaCorrecta) {
-			Pila<Colores> pilaRandom = datos.seleccionarPilaAleatoria();
-			if (!pilaRandom.comprobarVacia()) {
-				Colores color = pilaRandom.obtener();
-				datos.getLista().introducir(color);
-				pilaCorrecta = true;
+		if (this.datos.getPilaUno().getPilaColores().size() == Constantes.TAMANO_PILA
+				|| this.datos.getPilaDos().getPilaColores().size() == Constantes.TAMANO_PILA) {
+			boolean pilaCorrecta = false;
+			while (!pilaCorrecta) {
+				Pila<Colores> pilaRandom = datos.seleccionarPilaAleatoria();
+				if (!pilaRandom.comprobarVacia()) {
+					Colores color = pilaRandom.obtener();
+					datos.getLista().introducir(color);
+					pilaCorrecta = true;
+				}
 			}
 		}
 	}

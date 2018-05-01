@@ -47,7 +47,7 @@ public class Pila<T> {
 	 * @return el primer elemento.
 	 */
 	public T obtener() {
-		return pila.elementAt(0);
+		return pila.pop();
 	}
 
 	/**

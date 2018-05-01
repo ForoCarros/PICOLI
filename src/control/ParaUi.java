@@ -49,6 +49,20 @@ public class ParaUi extends UI {
 		this.seleccionar = new Seleccionar(this);
 		this.listenerSeleccionar = new MALSeleccionar(this, this.datos, this.seleccionar);
 		asignarListeners();
+		actualizarVentana();
+	}
+
+	public void actualizarVentana() {
+		System.out.println("Turno: " + turno);
+		System.out.println("Cola (" + this.datos.getCola().getCollectionCola().size() + ") "
+				+ this.datos.getCola().getCollectionCola());
+		System.out.println("Pila 1 (" + this.datos.getPilaUno().getPilaColores().size() + ") "
+				+ this.datos.getPilaUno().getPilaColores());
+		System.out.println("Pila 2 (" + this.datos.getPilaDos().getPilaColores().size() + ") "
+				+ this.datos.getPilaDos().getPilaColores());
+		System.out.println("Lista (" + this.datos.getLista().getListaColores().size() + ") "
+				+ this.datos.getLista().getListaColores());
+		System.out.println();
 	}
 
 	private void asignarListeners() {
