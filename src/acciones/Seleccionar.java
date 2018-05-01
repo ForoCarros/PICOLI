@@ -18,27 +18,27 @@ public class Seleccionar implements ActionListener, Seleccionable {
 
 	@Override
 	public void seleccionarColor(String color) {
-		Color colorDummy=comprobarColor(color);
+		Colores colorDummy=comprobarColor(color);
 		paraui.getJuego().realizarJugada(colorDummy);
 	}
 
-	private Color comprobarColor(String color) {
-		Color colorDummy=null;
+	private Colores comprobarColor(String color) {
+		Colores colorDummy=null;
 		switch (color) {
 		case "rojo":
-			colorDummy=Color.red;
+			colorDummy=Colores.rojo;
 			break;
 		case "amarillo":
-			colorDummy=Color.yellow;
+			colorDummy=Colores.amarillo;
 			break;
 		case "azul":
-			colorDummy=Color.blue;
+			colorDummy=Colores.azul;
 			break;
 		case "verde":
-			colorDummy=Color.green;
+			colorDummy=Colores.verde;
 			break;
 		case "naranja":
-			colorDummy=Color.orange;
+			colorDummy=Colores.naranja;
 			break;
 		}
 		return colorDummy;

@@ -4,12 +4,11 @@ import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import modelo.Colores;
 import modelo.Datos;
 import utiles.Constantes;
 
 public class Juego<T> implements Jugable<T> {
-
-	// Tengo que crear mas cosas que faltaban
 
 	private Datos datos;
 	private int intentosBorrar = Constantes.PETICION_BORRAR_MAX;
@@ -37,9 +36,6 @@ public class Juego<T> implements Jugable<T> {
 
 	@Override
 	public boolean comprobarListaLlena() {
-
-		// El primer getLista coge el objeto Lista. El segundo coge el arrayList de
-		// Lista.
 		if (datos.getLista().getListaColores().size() >= Constantes.TAMANO_LISTA) {
 			return true;
 		}
@@ -66,10 +62,8 @@ public class Juego<T> implements Jugable<T> {
 		return intentosBarajar;
 	}
 
-	// Esto nose si va aqui, yo creo que si y tiene tela!
-
-	public void realizarJugada(Color color) {
-		// TODO Auto-generated method stub
+	public void realizarJugada(Colores color) {
+		datos.getCola().introducir(color);
 
 	}
 
