@@ -10,6 +10,11 @@ public class Historial<T> implements Historiable<T> {
 	private ArrayList<T> historial;
 	private ArrayList<Colores> ultimosColores;
 	
+	public Historial() {
+		this.historial = new ArrayList<>();
+		this.ultimosColores = new ArrayList<>();
+	}
+	
 	public ArrayList<T> comprobarHistorial(Cola<T> e) {
 		ArrayDeque<T> cola = (ArrayDeque<T>) e.getCollectionCola();
 		ArrayDeque<T> colaApoyo=cola.clone();
