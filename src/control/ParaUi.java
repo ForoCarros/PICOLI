@@ -4,17 +4,19 @@ import java.awt.Color;
 
 import acciones.Iniciador;
 import logica.Juego;
+import modelo.Datos;
 import vista.UI;
 
 public class ParaUi extends UI {
 
 	private Juego juego;
 	private Iniciador iniciador;
+	private Datos datos;
 
-	public ParaUi(Juego juego, Iniciador iniciador) {
+	public ParaUi() {
 		super();
-		this.juego = juego;
-		this.iniciador = iniciador;
+		this.juego = new Juego<>();
+		this.iniciador = new Iniciador(this.datos);
 	}
 
 	public Juego getJuego() {
