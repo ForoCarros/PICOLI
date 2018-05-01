@@ -18,7 +18,7 @@ class PedableTest {
 	Datos datos=new Datos();
 	Iniciador iniciador=new Iniciador(datos);
 	Juego juego = new Juego();
-	ParaUi paraui=new ParaUi(juego, iniciador);
+	ParaUi paraui=new ParaUi();
 	Seleccionar instancia =new Seleccionar(paraui);
 
 	@Test
