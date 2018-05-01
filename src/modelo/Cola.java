@@ -18,4 +18,10 @@ public class Cola<T> {
 	public Collection<Colores> getCollectionCola() {
 		return cola;
 	}
+
+	public Colores sacarPrimero() {
+		Colores color=cola.getLast();
+		cola.removeLast();
+		return color;
+	}
 }
