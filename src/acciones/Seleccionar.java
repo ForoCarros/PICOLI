@@ -41,7 +41,6 @@ public class Seleccionar implements Seleccionable {
 			colorDummy=Colores.naranja;
 			break;
 		}
-		System.out.println(colorDummy);
 		return colorDummy;
 	}
 }

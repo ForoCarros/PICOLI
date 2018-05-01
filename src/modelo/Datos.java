@@ -48,7 +48,7 @@ public class Datos {
 	 * @return
 	 */
 	public Pila<Colores> seleccionarPilaAleatoria() {
-		int random = (int) (Math.random() * 1);
+		int random = (int) (Math.random() * 2);
 		if (random == 0) {
 			return getPilaUno();
 		} else {

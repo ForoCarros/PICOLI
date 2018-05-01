@@ -15,8 +15,8 @@ public class Iniciador implements Iniciable{
 
 	@Override
 	public void sortearColor() {
-		int ran = (int)(Math.random()*Colores.getCantidadElementos());
 		for (int i = 0; i < Constantes.TAMANO_COLA; i++) {
+			int ran = (int)(Math.random()*Colores.getCantidadElementos());
 			this.datos.getCola().introducir(Colores.getElement(ran));
 		}
 	}

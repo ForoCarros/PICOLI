@@ -74,10 +74,10 @@ public class Juego<T> implements Jugable<T> {
 	 *            pasa el color seleccionado o pedido
 	 */
 	public void realizarJugada(Colores color) {
-		datos.getCola().introducir(color);
+		this.datos.getCola().introducir(color);
 		introducirColorPila();
 		introducirColorLista();
-		comprobarDatosLista();
+		//comprobarDatosLista();
 	}
 
 	/**
@@ -116,12 +116,12 @@ public class Juego<T> implements Jugable<T> {
 	private void introducirColorPila() {
 		boolean pilaCorrecta = false;
 		Colores colorPrimero = datos.getCola().sacarPrimero();
-		while (!pilaCorrecta) {
+		do {
 			Pila<Colores> pilaRandom = datos.seleccionarPilaAleatoria();
 			if (!pilaRandom.comprobarLlena()) {
 				pilaRandom.introducir(colorPrimero);
 				pilaCorrecta = true;
 			}
-		}
+		} while (!pilaCorrecta);
 	}
 }

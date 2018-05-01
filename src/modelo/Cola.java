@@ -8,7 +8,7 @@ public class Cola<T> {
 	private ArrayDeque<Colores> cola = new ArrayDeque<>();
 
 	public void introducir(Colores colores) {
-		this.cola.add(colores);
+		this.cola.addFirst(colores);
 	}
 	
 	public Colores obtener() {

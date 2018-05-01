@@ -19,6 +19,7 @@ import vista.UI;
 
 public class ParaUi extends UI {
 
+	public int turno = 0;
 	private Juego juego;
 	private Iniciador iniciador;
 	private Datos datos;
@@ -36,8 +37,9 @@ public class ParaUi extends UI {
 	public ParaUi() {
 		super();
 		this.datos = new Datos();
-		this.juego = new Juego<>(this.datos);
 		this.iniciador = new Iniciador(this.datos);
+		iniciador.sortearColor();
+		this.juego = new Juego<>(this.datos);
 		this.barajar = new Barajar(this);
 		this.listenerBarajar = new MALBarajar(this, this.datos, this.barajar);
 		this.borrar = new Borrar(this);
