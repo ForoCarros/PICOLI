@@ -16,7 +16,23 @@ import javax.swing.JComboBox;
 
 public class UI extends JFrame {
 
-	private JPanel contentPane;
+	protected JPanel contentPane;
+	protected JPanel panelAcciones;
+	protected JButton btnNewButton;
+	protected JButton btnNewButton_1;
+	protected JButton btnNewButton_2;
+	protected JComboBox selectorColores;
+	protected JPanel panelColores;
+	protected JButton btnColor1;
+	protected JButton btnColor2;
+	protected JButton btnColor3;
+	protected JButton btnColor4;
+	protected JButton btnColor5;
+	protected JPanel panelPila;
+	protected JPanel panelColas;
+	protected JPanel panelColasUno;
+	protected JPanel panelColasDos;
+	protected JPanel panelLista;
 
 	/**
 	 * Create the frame.
@@ -35,7 +51,7 @@ public class UI extends JFrame {
 		gbl_contentPane.rowWeights = new double[] { 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		contentPane.setLayout(gbl_contentPane);
 
-		JPanel panelAcciones = new JPanel();
+		panelAcciones = new JPanel();
 		panelAcciones.setBackground(new Color(128, 128, 128));
 		panelAcciones.setBorder(new LineBorder(new Color(0, 0, 0)));
 		GridBagConstraints gbc_panelAcciones = new GridBagConstraints();
@@ -51,7 +67,7 @@ public class UI extends JFrame {
 		gbl_panelAcciones.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
 		panelAcciones.setLayout(gbl_panelAcciones);
 
-		JButton btnNewButton = new JButton("op1");
+		btnNewButton = new JButton("op1");
 		btnNewButton.setOpaque(false);
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
 		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
@@ -60,7 +76,7 @@ public class UI extends JFrame {
 		gbc_btnNewButton.gridy = 1;
 		panelAcciones.add(btnNewButton, gbc_btnNewButton);
 
-		JButton btnNewButton_1 = new JButton("op2");
+		btnNewButton_1 = new JButton("op2");
 		btnNewButton_1.setOpaque(false);
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
 		gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
@@ -69,7 +85,7 @@ public class UI extends JFrame {
 		gbc_btnNewButton_1.gridy = 2;
 		panelAcciones.add(btnNewButton_1, gbc_btnNewButton_1);
 
-		JButton btnNewButton_2 = new JButton("op3");
+		btnNewButton_2 = new JButton("op3");
 		btnNewButton_2.setOpaque(false);
 		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
 		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
@@ -78,7 +94,7 @@ public class UI extends JFrame {
 		gbc_btnNewButton_2.gridy = 3;
 		panelAcciones.add(btnNewButton_2, gbc_btnNewButton_2);
 
-		JComboBox selectorColores = new JComboBox();
+		selectorColores = new JComboBox();
 		GridBagConstraints gbc_selectorColores = new GridBagConstraints();
 		gbc_selectorColores.insets = new Insets(0, 0, 5, 0);
 		gbc_selectorColores.fill = GridBagConstraints.BOTH;
@@ -86,7 +102,7 @@ public class UI extends JFrame {
 		gbc_selectorColores.gridy = 4;
 		panelAcciones.add(selectorColores, gbc_selectorColores);
 
-		JPanel panelColores = new JPanel();
+		panelColores = new JPanel();
 		panelColores.setBackground(new Color(128, 128, 128));
 		panelColores.setBorder(new LineBorder(new Color(0, 0, 0)));
 		GridBagConstraints gbc_panelColores = new GridBagConstraints();
@@ -102,7 +118,7 @@ public class UI extends JFrame {
 		gbl_panelColores.rowWeights = new double[] { 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE };
 		panelColores.setLayout(gbl_panelColores);
 
-		JButton btnColor1 = new JButton("col1");
+		btnColor1 = new JButton("col1");
 		btnColor1.setOpaque(false);
 		GridBagConstraints gbc_btnColor1 = new GridBagConstraints();
 		gbc_btnColor1.insets = new Insets(0, 0, 5, 5);
@@ -111,7 +127,7 @@ public class UI extends JFrame {
 		gbc_btnColor1.gridy = 1;
 		panelColores.add(btnColor1, gbc_btnColor1);
 
-		JButton btnColor2 = new JButton("col2");
+		btnColor2 = new JButton("col2");
 		btnColor2.setOpaque(false);
 		GridBagConstraints gbc_btnColor2 = new GridBagConstraints();
 		gbc_btnColor2.fill = GridBagConstraints.BOTH;
@@ -120,7 +136,7 @@ public class UI extends JFrame {
 		gbc_btnColor2.gridy = 2;
 		panelColores.add(btnColor2, gbc_btnColor2);
 
-		JButton btnColor3 = new JButton("col3");
+		btnColor3 = new JButton("col3");
 		btnColor3.setOpaque(false);
 		GridBagConstraints gbc_btnColor3 = new GridBagConstraints();
 		gbc_btnColor3.fill = GridBagConstraints.BOTH;
@@ -129,7 +145,7 @@ public class UI extends JFrame {
 		gbc_btnColor3.gridy = 3;
 		panelColores.add(btnColor3, gbc_btnColor3);
 
-		JButton btnColor4 = new JButton("col4");
+		btnColor4 = new JButton("col4");
 		btnColor4.setOpaque(false);
 		GridBagConstraints gbc_btnColor4 = new GridBagConstraints();
 		gbc_btnColor4.fill = GridBagConstraints.BOTH;
@@ -138,7 +154,7 @@ public class UI extends JFrame {
 		gbc_btnColor4.gridy = 4;
 		panelColores.add(btnColor4, gbc_btnColor4);
 
-		JButton btnColor5 = new JButton("col5");
+		btnColor5 = new JButton("col5");
 		btnColor5.setOpaque(false);
 		GridBagConstraints gbc_btnColor5 = new GridBagConstraints();
 		gbc_btnColor5.fill = GridBagConstraints.BOTH;
@@ -147,7 +163,7 @@ public class UI extends JFrame {
 		gbc_btnColor5.gridy = 5;
 		panelColores.add(btnColor5, gbc_btnColor5);
 
-		JPanel panelPila = new JPanel();
+		panelPila = new JPanel();
 		panelPila.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelPila.setBackground(new Color(128, 128, 128));
 		GridBagConstraints gbc_panelPila = new GridBagConstraints();
@@ -157,7 +173,7 @@ public class UI extends JFrame {
 		gbc_panelPila.gridy = 1;
 		contentPane.add(panelPila, gbc_panelPila);
 
-		JPanel panelColas = new JPanel();
+		panelColas = new JPanel();
 		panelColas.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelColas.setBackground(new Color(128, 128, 128));
 		GridBagConstraints gbc_panelColas = new GridBagConstraints();
@@ -173,7 +189,7 @@ public class UI extends JFrame {
 		gbl_panelColas.rowWeights = new double[] { 1.0, Double.MIN_VALUE };
 		panelColas.setLayout(gbl_panelColas);
 
-		JPanel panelColasUno = new JPanel();
+		panelColasUno = new JPanel();
 		panelColasUno.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelColasUno.setBackground(new Color(180, 180, 180));
 		GridBagConstraints gbc_panelColasUno = new GridBagConstraints();
@@ -183,7 +199,7 @@ public class UI extends JFrame {
 		gbc_panelColasUno.gridy = 0;
 		panelColas.add(panelColasUno, gbc_panelColasUno);
 
-		JPanel panelColasDos = new JPanel();
+		panelColasDos = new JPanel();
 		panelColasDos.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelColasDos.setBackground(new Color(180, 180, 180));
 		GridBagConstraints gbc_panelColasDos = new GridBagConstraints();
@@ -192,7 +208,7 @@ public class UI extends JFrame {
 		gbc_panelColasDos.gridy = 0;
 		panelColas.add(panelColasDos, gbc_panelColasDos);
 
-		JPanel panelLista = new JPanel();
+		panelLista = new JPanel();
 		panelLista.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelLista.setBackground(new Color(128, 128, 128));
 		GridBagConstraints gbc_panelLista = new GridBagConstraints();
