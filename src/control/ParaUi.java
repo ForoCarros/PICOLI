@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import acciones.Iniciador;
 import logica.Juego;
+import modelo.Colores;
 import modelo.Datos;
 import vista.UI;
 
@@ -27,7 +28,7 @@ public class ParaUi extends UI {
 	 * Devuelve el color seleccionado en el comboBox
 	 * @return
 	 */
-	public Color dameColorCombo() {
+	public Colores dameColorCombo() {
 		// Color color=this.getComboColor().getSelectedItem();
 		return null;
 	}
