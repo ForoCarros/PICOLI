@@ -15,7 +15,7 @@ public class Datos {
 		this.lista = new Lista<>();
 		this.pilaUno = new Pila<>();
 		this.pilaDos = new Pila<>();
-		this.historial = new Historial<>() ;
+		this.historial = new Historial<>();
 	}
 
 	public Cola<Colores> getCola() {
@@ -41,20 +41,18 @@ public class Datos {
 	public Lista<Colores> getListaAuxiliar() {
 		return listaAuxiliar;
 	}
+
 	/**
-	 * devuelve  una de las dos pilas
+	 * devuelve una de las dos pilas
+	 * 
 	 * @return
 	 */
 	public Pila<Colores> seleccionarPilaAleatoria() {
-		int random = (int) (Math.random() * 1) ;
-		
+		int random = (int) (Math.random() * 1);
 		if (random == 0) {
 			return getPilaUno();
-		}else {
+		} else {
 			return getPilaDos();
 		}
-		
-		
 	}
-	
 }
