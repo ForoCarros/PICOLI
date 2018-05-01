@@ -13,7 +13,7 @@ import modelo.Colores;
 import modelo.Lista;
 import modelo.Pila;
 
-public class Barajar implements ActionListener, Barajable {
+public class Barajar implements Barajable {
 
 	private ParaUi paraui;
 
@@ -51,18 +51,4 @@ public class Barajar implements ActionListener, Barajable {
 		listaDummy.clear();
 		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBarajar());
 	}
-	
-	// esto nose si deberia ser mas corto....xD
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		volcarPilasEnLista(paraui.getJuego().getDatos().getListaAuxiliar().getListaColores(),
-				paraui.getJuego().getDatos().getPilaUno().getPilaColores(),
-				paraui.getJuego().getDatos().getPilaDos().getPilaColores());
-		barajar(paraui.getJuego().getDatos().getListaAuxiliar().getListaColores());
-		volcarListaEnPilas(paraui.getJuego().getDatos().getListaAuxiliar().getListaColores(),
-				paraui.getJuego().getDatos().getPilaUno().getPilaColores(),
-				paraui.getJuego().getDatos().getPilaDos().getPilaColores());
-	}
-
 }

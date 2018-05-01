@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import control.ParaUi;
 import modelo.Colores;
 
-public class Pedir implements Pedable, ActionListener {
+public class Pedir implements Pedable {
 
 	private ParaUi paraui;
 
@@ -22,10 +22,4 @@ public class Pedir implements Pedable, ActionListener {
 		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosPedir());
 		paraui.getJuego().realizarJugada(color);
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		pedirColor();
-	}
-
 }

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import control.ParaUi;
 import modelo.Colores;
 
-public class Borrar implements Borrable, ActionListener {
+public class Borrar implements Borrable {
 
 	private ParaUi paraui;
 
@@ -54,10 +54,4 @@ public class Borrar implements Borrable, ActionListener {
 		lista.remove(color);
 		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBorrar());
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		buscarColor(e.getSource().getClass().getName(), paraui.getJuego().getDatos().getLista().getListaColores());
-	}
-
 }

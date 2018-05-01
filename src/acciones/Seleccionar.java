@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import control.ParaUi;
 import modelo.Colores;
 
-public class Seleccionar implements ActionListener, Seleccionable {
+public class Seleccionar implements Seleccionable {
 
 	private ParaUi paraui;
 	
@@ -42,11 +42,5 @@ public class Seleccionar implements ActionListener, Seleccionable {
 			break;
 		}
 		return colorDummy;
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		paraui.comprobarHistorialValidos();
-		seleccionarColor(e.getSource().getClass().getName());
 	}
 }
