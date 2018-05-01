@@ -3,28 +3,23 @@ package acciones;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 import control.ParaUi;
 import modelo.Colores;
 
-public class Borrar implements Borrable {
+public class Seleccionar implements Seleccionable {
 
 	private ParaUi paraui;
-
-	public Borrar(ParaUi paraui) {
+	
+	public Seleccionar(ParaUi paraui) {
 		super();
 		this.paraui = paraui;
 	}
 
 	@Override
-	public void buscarColor(String color, ArrayList<Colores> lista) {
-		Colores colorcito=comprobarColor(color);
-		for (Colores dummy : lista) {
-			if (dummy.equals(colorcito)) {
-				borrarColor(dummy, lista);
-			}
-		}
+	public void seleccionarColor(String color) {
+		Colores colorDummy=comprobarColor(color);
+		paraui.getJuego().realizarJugada(colorDummy);
 	}
 
 	private Colores comprobarColor(String color) {
@@ -47,11 +42,5 @@ public class Borrar implements Borrable {
 			break;
 		}
 		return colorDummy;
-	}
-
-	@Override
-	public void borrarColor(Colores color, ArrayList<Colores> lista) {
-		lista.remove(color);
-		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBorrar());
 	}
 }

@@ -1,20 +1,27 @@
 package modelo;
 
+import java.awt.Color;
 import java.util.ArrayDeque;
 import java.util.Collection;
 
 public class Cola<T> {
-	private ArrayDeque<T> cola = new ArrayDeque<>();
+	private ArrayDeque<Colores> cola = new ArrayDeque<>();
 
-	public void introducir(T elemento) {
-		this.cola.add(elemento);
+	public void introducir(Colores colores) {
+		this.cola.add(colores);
 	}
 	
-	public T obtener() {
+	public Colores obtener() {
 		return this.cola.pollLast();
 	}
 
-	public Collection<T> getCollectionCola() {
+	public Collection<Colores> getCollectionCola() {
 		return cola;
+	}
+
+	public Colores sacarPrimero() {
+		Colores color=cola.getLast();
+		cola.removeLast();
+		return color;
 	}
 }

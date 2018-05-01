@@ -20,7 +20,7 @@ class BarajableTest {
 	Datos datos=new Datos();
 	Iniciador iniciador=new Iniciador(datos);
 	Juego juego = new Juego();
-	ParaUi paraui=new ParaUi(juego, iniciador);
+	ParaUi paraui=new ParaUi();
 	Barajar instancia = new Barajar(paraui);
 
 	@Ignore

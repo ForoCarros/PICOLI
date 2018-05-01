@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 public class Pila<T> {
-	Stack<T> pila = new Stack<>();
-	
+
+	private Stack<T> pila = new Stack<>();
 
 	/**
 	 * Comprueba si la pila POR PARÁMETRO está llena.
@@ -15,10 +15,19 @@ public class Pila<T> {
 	 *            la pila a comprobar.
 	 * @return true si está llena, false si no.
 	 */
-	public boolean comprobarLlena(Stack<T> pila) {
+	public boolean comprobarLlena() {
 		if (pila.size() == utiles.Constantes.TAMANO_PILA) {
 			return true;
 		}
+		return false;
+	}
+	
+	/**
+	 * Comprueba si una pila esta completamente vacia
+	 * @return
+	 */
+	public boolean comprobarVacia() {
+		if(pila.size()==0) return true;
 		return false;
 	}
 
@@ -38,9 +47,7 @@ public class Pila<T> {
 	 * @return el primer elemento.
 	 */
 	public T obtener() {
-
 		return pila.elementAt(0);
-
 	}
 
 	/**

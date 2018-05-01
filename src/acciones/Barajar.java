@@ -13,9 +13,9 @@ import modelo.Colores;
 import modelo.Lista;
 import modelo.Pila;
 
-public class Barajar implements ActionListener, Barajable {
+public class Barajar implements Barajable {
 
-	ParaUi paraui;
+	private ParaUi paraui;
 
 	public Barajar(ParaUi paraui) {
 		super();
@@ -37,7 +37,6 @@ public class Barajar implements ActionListener, Barajable {
 		}
 		pilaOne.removeAllElements();
 		pilaTwo.removeAllElements();
-
 	}
 
 	@Override
@@ -50,14 +49,6 @@ public class Barajar implements ActionListener, Barajable {
 			}
 		}
 		listaDummy.clear();
+		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBarajar());
 	}
-
-	@Override
-	public void actionPerformed(ActionEvent e) {
-		volcarPilasEnLista(null, null, null);
-		barajar(null);
-		volcarListaEnPilas(null, null, null);
-		// hay que implemetar los botones y demas....
-	}
-
 }

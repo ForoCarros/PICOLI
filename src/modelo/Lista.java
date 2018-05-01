@@ -7,7 +7,6 @@ import java.util.Iterator;
 public class Lista<T> {
 
 	private ArrayList<T> lista = new ArrayList<>();
-	
 
 	/**
 	 * Introduce un elemento en la lista.
@@ -26,15 +25,13 @@ public class Lista<T> {
 	 * @param rango
 	 *            longitud a partir de inicio.
 	 */
-	public boolean comprobarIguales() {
-
-		if (lista.size()>3) {
+	public boolean comprobarColoresIguales() {
+		if (lista.size() > 3) {
 			if (lista.get(0).equals(lista.get(1)) && lista.get(0).equals(lista.get(2))) {
 				return true;
 			}
 		}
 		return false;
-
 	}
 
 	/**
@@ -48,7 +45,22 @@ public class Lista<T> {
 		listaAux.clear();
 	}
 
+	/**
+	 * Te devuelve la lista con todo lo que tenga
+	 * 
+	 * @return la lista
+	 */
 	public ArrayList<Colores> getListaColores() {
 		return (ArrayList<Colores>) lista;
+	}
+
+	/**
+	 * Al comprobar que los tres primeros colores son iguales hay que eliminarlos de
+	 * la lista
+	 */
+	public void borrarTresPrimeros() {
+		for (int i = 0; i < 3; i++) {
+			lista.remove(0);
+		}
 	}
 }
