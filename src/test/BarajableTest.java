@@ -19,7 +19,7 @@ class BarajableTest {
 	
 	Datos datos=new Datos();
 	Iniciador iniciador=new Iniciador(datos);
-	Juego juego = new Juego();
+	Juego juego = new Juego(datos);
 	ParaUi paraui=new ParaUi();
 	Barajar instancia = new Barajar(paraui);
 
@@ -32,7 +32,7 @@ class BarajableTest {
 			listaDos.add(i);
 		}
 		assertEquals(lista, listaDos);
-		instancia.barajar(lista);
+		instancia.barajar();
 		assertNotEquals(lista, listaDos);
 	}
 
@@ -47,7 +47,7 @@ class BarajableTest {
 		pilaOne.add(Colores.amarillo);
 		pilaTwo.add(Colores.azul);
 		assertTrue(lista.size()==0);
-		instancia.volcarPilasEnLista(lista, pilaOne, pilaTwo);
+		instancia.volcarPilasEnLista();
 		assertEquals(lista, listaDos);
 	}
 	
@@ -60,7 +60,7 @@ class BarajableTest {
 		lista.add(Colores.azul);
 		lista.add(Colores.verde);
 		assertEquals(pilaOne.size(),pilaTwo.size());
-		instancia.volcarListaEnPilas(lista, pilaOne, pilaTwo);
+		instancia.volcarListaEnPilas();
 		assertTrue(lista.size()==0);
 		assertNotEquals(pilaOne.size(),pilaTwo.size());
 	}

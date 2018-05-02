@@ -14,12 +14,12 @@ import logica.Juego;
 import modelo.Datos;
 
 class PedableTest {
-	
-	Datos datos=new Datos();
-	Iniciador iniciador=new Iniciador(datos);
-	Juego juego = new Juego();
-	ParaUi paraui=new ParaUi();
-	Seleccionar instancia =new Seleccionar(paraui);
+
+	Datos datos = new Datos();
+	Iniciador iniciador = new Iniciador(datos);
+	Juego juego = new Juego(datos);
+	ParaUi paraui = new ParaUi();
+	Seleccionar instancia = new Seleccionar(paraui);
 
 	@Test
 	void testPedirColor() {
