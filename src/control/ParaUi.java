@@ -82,6 +82,7 @@ public class ParaUi extends UI {
 		this.btnNaranja.addActionListener(listenerSeleccionar);
 		this.btnBarajarPilas.addActionListener(listenerBarajar);
 		this.btnBorrarColor.addActionListener(listenerBorrar);
+		this.btnPedirColor.addActionListener(listenerPedir);
 	}
 
 	public Juego getJuego() {

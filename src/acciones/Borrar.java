@@ -17,18 +17,20 @@ public class Borrar implements Borrable {
 		super();
 		this.paraui = paraui;
 	}
-	//holjj
 
 	@Override
 	public void buscarColor(String color) {
+		ArrayList<Colores> listaRemover = new ArrayList<>();
 		ArrayList<Colores> lista = this.paraui.getJuego().getDatos().getLista().getListaColores();
 		Colores colorcito = comprobarColor(color);
-		for (Iterator<Colores> i = lista.iterator(); i.hasNext();) {
-			Colores elemento = i.next();
-			if (elemento.equals(colorcito)) {
-				borrarColor(elemento);
+		for (Colores colores : lista) {
+			if (colores.toString().equals(colorcito.toString())) {
+				listaRemover.add(colores);
 			}
 		}
+		lista.removeAll(listaRemover);
+		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBorrar());
+		paraui.getJuego().incrementarMonedas();
 	}
 
 	private Colores comprobarColor(String color) {
@@ -51,12 +53,5 @@ public class Borrar implements Borrable {
 			break;
 		}
 		return colorDummy;
-	}
-
-	@Override
-	public void borrarColor(Colores color) {
-		ArrayList<Colores> lista = this.paraui.getJuego().getDatos().getLista().getListaColores();
-		lista.remove(color);
-		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBorrar());
 	}
 }

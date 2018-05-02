@@ -26,15 +26,7 @@ public class Barajar implements Barajable {
 	@Override
 	public <T> void barajar() {
 		ArrayList<Colores> listaAux = this.paraui.getJuego().getDatos().getListaAuxiliar().getListaColores();
-		for (int i = 0; i < 10; i++) {
-			int pos1 = (int) (Math.random() * listaAux.size());
-			int pos2 = (int) (Math.random() * listaAux.size());
-			Colores a = listaAux.get(pos1);
-			Colores b = listaAux.get(pos2);
-			listaAux.set(pos1, b);
-			listaAux.set(pos2, a);
-
-		}
+		Collections.shuffle(listaAux);
 	}
 
 	@Override
@@ -56,6 +48,10 @@ public class Barajar implements Barajable {
 		ArrayList<Colores> listaDummy = this.paraui.getJuego().getDatos().getListaAuxiliar().getListaColores();
 		Pila<Colores> pilaOne = this.paraui.getJuego().getDatos().getPilaUno();
 		Pila<Colores> pilaTwo = this.paraui.getJuego().getDatos().getPilaDos();
+
+		
+		// algo pasa aqui.... no se cambian las primeras posiciones, las demas si se
+		// cambian de los colores de pilas
 		for (int i = 0; i < listaDummy.size(); i++) {
 			if (i % 2 == 0) {
 				pilaOne.introducir(listaDummy.get(i));

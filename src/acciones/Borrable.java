@@ -8,7 +8,7 @@ import modelo.Colores;
 public interface Borrable {
 
 	/**
-	 * Busca el color en la lista.
+	 * Busca el color en la lista y lo borra.
 	 * 
 	 * @param <T>
 	 * 
@@ -17,9 +17,5 @@ public interface Borrable {
 	 */
 	public void buscarColor(String c);
 
-	/**
-	 * ELimina el elemento en la lista.
-	 */
-	public void borrarColor(Colores c);
 
 }
