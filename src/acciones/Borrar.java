@@ -20,17 +20,19 @@ public class Borrar implements Borrable {
 
 	@Override
 	public void buscarColor(String color) {
-		ArrayList<Colores> listaRemover = new ArrayList<>();
-		ArrayList<Colores> lista = this.paraui.getJuego().getDatos().getLista().getListaColores();
-		Colores colorcito = comprobarColor(color);
-		for (Colores colores : lista) {
-			if (colores.toString().equals(colorcito.toString())) {
-				listaRemover.add(colores);
+		if(!(paraui.getJuego().getDatos().getLista().getListaColores().isEmpty())) {
+			ArrayList<Colores> listaRemover = new ArrayList<>();
+			ArrayList<Colores> lista = this.paraui.getJuego().getDatos().getLista().getListaColores();
+			Colores colorcito = comprobarColor(color);
+			for (Colores colores : lista) {
+				if (colores.toString().equals(colorcito.toString())) {
+					listaRemover.add(colores);
+				}
 			}
+			lista.removeAll(listaRemover);
+			paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBorrar());
+			paraui.getJuego().incrementarMonedas();
 		}
-		lista.removeAll(listaRemover);
-		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBorrar());
-		paraui.getJuego().incrementarMonedas();
 	}
 
 	private Colores comprobarColor(String color) {

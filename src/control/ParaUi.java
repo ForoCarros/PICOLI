@@ -2,6 +2,8 @@ package control;
 
 import java.awt.Color;
 
+import javax.swing.JTextField;
+
 import acciones.Barajar;
 import acciones.Borrar;
 import acciones.Iniciador;
@@ -104,6 +106,14 @@ public class ParaUi extends UI {
 	 */
 	public Object dameColorCombo() {
 		return this.comboColores.getSelectedItem();
+	}
+	
+	/**
+	 * necesitamos el txtmensaje para meterlo en algun lado???
+	 * @return
+	 */
+	public JTextField dameTexto() {
+		return this.txtMensaje;
 	}
 	
 	/**
