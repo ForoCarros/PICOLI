@@ -63,8 +63,8 @@ public class UI extends JFrame {
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[] { 30, 0, 0, 60, 0, 60, 0, 0 };
 		gbl_contentPane.rowHeights = new int[] { 0, 0, 0, 0, 0, 0 };
-		gbl_contentPane.columnWeights = new double[] { 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
-		gbl_contentPane.rowWeights = new double[] { 1.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE };
+		gbl_contentPane.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
+		gbl_contentPane.rowWeights = new double[] { 1.0, 0.0, 1.0, 0.0, 1.0, Double.MIN_VALUE };
 		contentPane.setLayout(gbl_contentPane);
 		
 		JLabel lblTitulo = new JLabel("HOLA PABLO");
@@ -80,6 +80,7 @@ public class UI extends JFrame {
 		contentPane.add(lblTitulo, gbc_lblTitulo);
 		
 		JLabel lblMonedas = new JLabel("Monedas :");
+		lblMonedas.setForeground(Color.WHITE);
 		lblMonedas.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblMonedas.setHorizontalAlignment(SwingConstants.LEFT);
 		GridBagConstraints gbc_lblMonedas = new GridBagConstraints();
@@ -90,8 +91,13 @@ public class UI extends JFrame {
 		contentPane.add(lblMonedas, gbc_lblMonedas);
 		
 		txtMonedas = new JTextField();
+		txtMonedas.setOpaque(false);
+		txtMonedas.setAutoscrolls(false);
+		txtMonedas.setForeground(Color.WHITE);
+		txtMonedas.setEnabled(false);
 		txtMonedas.setEditable(false);
 		GridBagConstraints gbc_txtMonedas = new GridBagConstraints();
+		gbc_txtMonedas.gridwidth = 2;
 		gbc_txtMonedas.insets = new Insets(0, 0, 5, 5);
 		gbc_txtMonedas.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtMonedas.gridx = 2;
@@ -287,6 +293,7 @@ public class UI extends JFrame {
 		panelLista.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		JLabel lblMensaje = new JLabel("Mensaje :");
+		lblMensaje.setForeground(Color.WHITE);
 		lblMensaje.setHorizontalAlignment(SwingConstants.CENTER);
 		lblMensaje.setFont(new Font("Tahoma", Font.BOLD, 15));
 		GridBagConstraints gbc_lblMensaje = new GridBagConstraints();
@@ -297,6 +304,9 @@ public class UI extends JFrame {
 		contentPane.add(lblMensaje, gbc_lblMensaje);
 		
 		txtMensaje = new JTextField();
+		txtMensaje.setOpaque(false);
+		txtMensaje.setEnabled(false);
+		txtMensaje.setAutoscrolls(false);
 		txtMensaje.setEditable(false);
 		GridBagConstraints gbc_txtMensaje = new GridBagConstraints();
 		gbc_txtMensaje.gridwidth = 4;
