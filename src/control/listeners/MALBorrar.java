@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import acciones.Borrar;
 import control.ParaUi;
+import modelo.Colores;
 import modelo.Datos;
 
 public class MALBorrar implements ActionListener {
