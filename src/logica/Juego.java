@@ -74,6 +74,8 @@ public class Juego<T> implements Jugable<T> {
 	 *            pasa el color seleccionado o pedido
 	 */
 	public void realizarJugada(Colores color) {
+		// Al pulsar el boton hace falta comprobar el historial y bloquear los botones
+		// de colores necesarios
 		this.datos.getCola().introducir(color);
 		introducirColorPila();
 		introducirColorLista();
