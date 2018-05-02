@@ -20,7 +20,7 @@ class BorrableTest {
 	
 	Datos datos=new Datos();
 	Iniciador iniciador=new Iniciador(datos);
-	Juego juego = new Juego();
+	Juego juego = new Juego(datos);
 	ParaUi paraui=new ParaUi();
 	Borrar instancia=new Borrar(paraui);
 	
@@ -32,7 +32,7 @@ class BorrableTest {
 		lista.add(Colores.rojo);
 		lista.add(Colores.verde);
 		listaDos.add(Colores.verde);
-		instancia.buscarColor("rojo", lista);
+		instancia.buscarColor("rojo");
 		assertEquals(listaDos.size(), lista.size());
 	}
 	
@@ -40,7 +40,7 @@ class BorrableTest {
 	void testBorrarColor() {
 		ArrayList<Colores> lista= new ArrayList<>();
 		lista.add(Colores.rojo);
-		instancia.borrarColor(Colores.rojo, lista);
+		instancia.borrarColor(Colores.rojo);
 		System.out.println(lista);
 		assertTrue(lista.size()==0);
 	}
