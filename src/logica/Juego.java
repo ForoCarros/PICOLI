@@ -74,8 +74,6 @@ public class Juego<T> implements Jugable<T> {
 	 *            pasa el color seleccionado o pedido
 	 */
 	public void realizarJugada(Colores color) {
-		// Al pulsar el boton hace falta comprobar el historial y bloquear los botones
-		// de colores necesarios
 		this.datos.getCola().introducir(color);
 		introducirColorPila();
 		introducirColorLista();
@@ -86,14 +84,10 @@ public class Juego<T> implements Jugable<T> {
 	 * Se comprueba diferentes situaciones de la lista que pueden acabar el juego
 	 */
 	private void comprobarDatosLista() {
-		if (comprobarGanador() || comprobarListaLlena()) {
-			System.out.println("O has ganado o has perdido, lo que surja");
-		} else {
-			if (datos.getLista().getListaColores().size() >= 3) {
-				if (datos.getLista().comprobarColoresIguales(0, 2)) {
-					datos.getLista().borrarTresPrimeros();
-					incrementarMonedas();
-				}
+		if (datos.getLista().getListaColores().size() >= 3) {
+			if (datos.getLista().comprobarColoresIguales(0, 2)) {
+				datos.getLista().borrarTresPrimeros();
+				incrementarMonedas();
 			}
 		}
 	}

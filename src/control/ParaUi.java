@@ -52,6 +52,7 @@ public class ParaUi extends UI {
 		this.listenerSeleccionar = new MALSeleccionar(this, this.datos, this.seleccionar);
 		asignarListeners();
 		actualizarVentana();
+		finalizarJuego();
 	}
 
 	public void actualizarVentana() {
@@ -104,4 +105,15 @@ public class ParaUi extends UI {
 	public Object dameColorCombo() {
 		return this.comboColores.getSelectedItem();
 	}
+	
+	/**
+	 * Comprueba si has llegado al total de monedas o si la lista esta llena
+	 * 
+	 */
+	public void finalizarJuego() {
+		if (this.juego.comprobarGanador()) txtMensaje.setText("monedas maximas!, HAS GANADO");
+		if (this.juego.comprobarListaLlena()) txtMensaje.setText("lista llena, HAS PERDIDO");
+		// deberiamos poner algo para que el juego se interrumpiese.
+	}
+	
 }
