@@ -15,11 +15,11 @@ public interface Borrable {
 	 * @param c
 	 *            el color a borrar.
 	 */
-	public void buscarColor(String c, ArrayList<Colores> lista);
+	public void buscarColor(String c);
 
 	/**
 	 * ELimina el elemento en la lista.
 	 */
-	public void borrarColor(Colores c, ArrayList<Colores> lista);
+	public void borrarColor(Colores c);
 
 }

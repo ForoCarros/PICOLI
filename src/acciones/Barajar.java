@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Stack;
 
 import control.ParaUi;
+import modelo.Cola;
 import modelo.Colores;
 import modelo.Lista;
 import modelo.Pila;
@@ -23,29 +24,43 @@ public class Barajar implements Barajable {
 	}
 
 	@Override
-	public <T> void barajar(ArrayList<T> listaDummy) {
-		Collections.shuffle((List<?>) listaDummy);
+	public <T> void barajar() {
+		ArrayList<Colores> listaAux = this.paraui.getJuego().getDatos().getListaAuxiliar().getListaColores();
+		for (int i = 0; i < 10; i++) {
+			int pos1 = (int) (Math.random() * listaAux.size());
+			int pos2 = (int) (Math.random() * listaAux.size());
+			Colores a = listaAux.get(pos1);
+			Colores b = listaAux.get(pos2);
+			listaAux.set(pos1, b);
+			listaAux.set(pos2, a);
+
+		}
 	}
 
 	@Override
-	public <T> void volcarPilasEnLista(ArrayList<T> listaDummy, Stack<T> pilaOne, Stack<T> pilaTwo) {
-		for (T color : pilaOne) {
-			listaDummy.add(color);
+	public <T> void volcarPilasEnLista() {
+		Stack<Colores> pilaUno = this.paraui.getJuego().getDatos().getPilaUno().getPilaColores();
+		Stack<Colores> pilaDos = this.paraui.getJuego().getDatos().getPilaDos().getPilaColores();
+		Lista<Colores> lista = this.paraui.getJuego().getDatos().getListaAuxiliar();
+
+		for (int i = 0; i < pilaUno.size(); i++) {
+			lista.introducir(pilaUno.pop());
 		}
-		for (T color : pilaTwo) {
-			listaDummy.add(color);
+		for (int i = 0; i < pilaDos.size(); i++) {
+			lista.introducir(pilaDos.pop());
 		}
-		pilaOne.removeAllElements();
-		pilaTwo.removeAllElements();
 	}
 
 	@Override
-	public <T> void volcarListaEnPilas(ArrayList<T> listaDummy, Stack<T> pilaOne, Stack<T> pilaTwo) {
+	public <T> void volcarListaEnPilas() {
+		ArrayList<Colores> listaDummy = this.paraui.getJuego().getDatos().getListaAuxiliar().getListaColores();
+		Pila<Colores> pilaOne = this.paraui.getJuego().getDatos().getPilaUno();
+		Pila<Colores> pilaTwo = this.paraui.getJuego().getDatos().getPilaDos();
 		for (int i = 0; i < listaDummy.size(); i++) {
 			if (i % 2 == 0) {
-				pilaOne.add(listaDummy.get(i));
+				pilaOne.introducir(listaDummy.get(i));
 			} else {
-				pilaTwo.add(listaDummy.get(i));
+				pilaTwo.introducir(listaDummy.get(i));
 			}
 		}
 		listaDummy.clear();

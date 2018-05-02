@@ -12,20 +12,20 @@ public interface Barajable {
 	 * 
 	 * @param <T>
 	 */
-	public <T> void barajar(ArrayList<T> lista);
+	public <T> void barajar();
 
 	/**
 	 * vuelca las pilas en una lisa auxiliar
 	 * 
 	 * @param <T>
 	 */
-	public <T> void volcarPilasEnLista(ArrayList<T> lista, Stack<T> pilaOne, Stack<T> pilaTwo);
+	public <T> void volcarPilasEnLista();
 
 	/**
 	 * vualca la lista dummy en las pilas
 	 * 
 	 * @param <T>
 	 */
-	public <T> void volcarListaEnPilas(ArrayList<T> lista, Stack<T> pilaOne, Stack<T> pilaTwo);
+	public <T> void volcarListaEnPilas();
 
 }

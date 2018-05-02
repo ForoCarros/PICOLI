@@ -16,6 +16,7 @@ public class Datos {
 		this.pilaUno = new Pila<>();
 		this.pilaDos = new Pila<>();
 		this.historial = new Historial<>();
+		this.listaAuxiliar = new Lista<>();
 	}
 
 	public Cola<Colores> getCola() {

@@ -77,7 +77,7 @@ public class Juego<T> implements Jugable<T> {
 		this.datos.getCola().introducir(color);
 		introducirColorPila();
 		introducirColorLista();
-		// comprobarDatosLista();
+		comprobarDatosLista();
 	}
 
 	/**

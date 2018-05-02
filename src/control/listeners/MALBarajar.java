@@ -2,9 +2,11 @@ package control.listeners;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import acciones.Barajar;
 import control.ParaUi;
+import modelo.Colores;
 import modelo.Datos;
 
 public class MALBarajar implements ActionListener {
@@ -21,13 +23,10 @@ public class MALBarajar implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.barajar.volcarPilasEnLista(paraUi.getJuego().getDatos().getListaAuxiliar().getListaColores(),
-				this.paraUi.getJuego().getDatos().getPilaUno().getPilaColores(),
-				this.paraUi.getJuego().getDatos().getPilaDos().getPilaColores());
-		this.barajar.barajar(this.paraUi.getJuego().getDatos().getListaAuxiliar().getListaColores());
-		this.barajar.volcarListaEnPilas(this.paraUi.getJuego().getDatos().getListaAuxiliar().getListaColores(),
-				this.paraUi.getJuego().getDatos().getPilaUno().getPilaColores(),
-				this.paraUi.getJuego().getDatos().getPilaDos().getPilaColores());
+		this.barajar.volcarPilasEnLista();
+		this.barajar.barajar();
+		this.barajar.volcarListaEnPilas();
+		this.paraUi.actualizarVentana();
 	}
 
 }

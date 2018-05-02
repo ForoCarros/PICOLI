@@ -15,6 +15,8 @@ import logica.Juego;
 import modelo.Colores;
 import modelo.Datos;
 import modelo.Historial;
+import utiles.Constantes;
+import vista.Elemento;
 import vista.UI;
 
 public class ParaUi extends UI {
@@ -53,24 +55,33 @@ public class ParaUi extends UI {
 	}
 
 	public void actualizarVentana() {
-		System.out.println("Turno: " + turno);
-		System.out.println("Cola (" + this.datos.getCola().getCollectionCola().size() + ") "
-				+ this.datos.getCola().getCollectionCola());
-		System.out.println("Pila 1 (" + this.datos.getPilaUno().getPilaColores().size() + ") "
-				+ this.datos.getPilaUno().getPilaColores());
-		System.out.println("Pila 2 (" + this.datos.getPilaDos().getPilaColores().size() + ") "
-				+ this.datos.getPilaDos().getPilaColores());
-		System.out.println("Lista (" + this.datos.getLista().getListaColores().size() + ") "
-				+ this.datos.getLista().getListaColores());
-		System.out.println();
+		this.panelPila.removeAll();
+		this.panelColasUno.removeAll();
+		this.panelColasDos.removeAll();
+		this.panelLista.removeAll();
+		for (int i = 0; i < Constantes.TAMANO_COLA; i++) {
+			this.panelPila.add(new Elemento(this.datos.getCola().obtenerTodos().get(i).getColor()));
+		}
+		for (int i = 0; i < this.datos.getPilaUno().getPilaColores().size(); i++) {
+			this.panelColasUno.add(new Elemento(this.datos.getPilaUno().getPilaColores().get(i).getColor()));
+		}
+		for (int i = 0; i < this.datos.getPilaDos().getPilaColores().size(); i++) {
+			this.panelColasDos.add(new Elemento(this.datos.getPilaDos().getPilaColores().get(i).getColor()));
+		}
+		for (int i = 0; i < this.datos.getLista().getListaColores().size(); i++) {
+			this.panelLista.add(new Elemento(this.datos.getLista().getListaColores().get(i).getColor()));
+		}
+		this.validate();
 	}
 
 	private void asignarListeners() {
-		this.btnColor1.addActionListener(listenerSeleccionar);
-		this.btnColor2.addActionListener(listenerSeleccionar);
-		this.btnColor3.addActionListener(listenerSeleccionar);
-		this.btnColor4.addActionListener(listenerSeleccionar);
-		this.btnColor5.addActionListener(listenerSeleccionar);
+		this.btnAmarillo.addActionListener(listenerSeleccionar);
+		this.btnRojo.addActionListener(listenerSeleccionar);
+		this.btnVerde.addActionListener(listenerSeleccionar);
+		this.btnAzul.addActionListener(listenerSeleccionar);
+		this.btnNaranja.addActionListener(listenerSeleccionar);
+		this.btnBarajarPilas.addActionListener(listenerBarajar);
+		this.btnBorrarColor.addActionListener(listenerBorrar);
 	}
 
 	public Juego getJuego() {
@@ -82,8 +93,7 @@ public class ParaUi extends UI {
 	 * 
 	 * @return
 	 */
-	public Colores dameColorCombo() {
-		// Color color=this.getComboColor().getSelectedItem();
-		return null;
+	public Object dameColorCombo() {
+		return this.comboColores.getSelectedItem();
 	}
 }

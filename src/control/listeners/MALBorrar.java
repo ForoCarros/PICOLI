@@ -22,7 +22,8 @@ public class MALBorrar implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.borrar.buscarColor(e.getSource().getClass().getName(), this.paraUi.getJuego().getDatos().getLista().getListaColores());
+		this.borrar.buscarColor(this.paraUi.dameColorCombo().toString());
+		this.paraUi.actualizarVentana();
 	}
 
 }

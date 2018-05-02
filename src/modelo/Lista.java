@@ -14,7 +14,7 @@ public class Lista<T> {
 	 * @param elemento
 	 */
 	public void introducir(T elemento) {
-		lista.add(elemento);
+		lista.add(0, elemento);
 	}
 
 	/**
