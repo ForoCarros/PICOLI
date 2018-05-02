@@ -27,8 +27,10 @@ public class Lista<T> {
 	 */
 	public boolean comprobarColoresIguales(int inicio, int rango) {
 		boolean cont = true;
-		for (int i = 0; i < rango - 1 && cont; i++) {
-			if(!lista.get(i).equals(lista.get(i + 1))) {
+		for (int i = inicio + 1; i < rango - 1 && cont; i++) {
+			if (this.lista.get(i - 1).equals(this.lista.get(i)) && this.lista.get(i).equals(this.lista.get(i + 1))) {
+				cont = true;
+			} else {
 				cont = false;
 			}
 		}
