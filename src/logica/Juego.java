@@ -89,8 +89,9 @@ public class Juego<T> implements Jugable<T> {
 		if (comprobarGanador() || comprobarListaLlena()) {
 			System.out.println("O has ganado o has perdido, lo que surja");
 		} else {
-			if (datos.getLista().comprobarColoresIguales()) {
+			if (datos.getLista().comprobarColoresIguales(0, 2)) {
 				datos.getLista().borrarTresPrimeros();
+				incrementarMonedas();
 			}
 		}
 	}

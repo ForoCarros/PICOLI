@@ -71,6 +71,12 @@ public class ParaUi extends UI {
 		for (int i = 0; i < this.datos.getLista().getListaColores().size(); i++) {
 			this.panelLista.add(new Elemento(this.datos.getLista().getListaColores().get(i).getColor()));
 		}
+		this.lblIntentosBarajar.setText(String.valueOf(this.juego.getIntentosBarajar()));
+		this.lblIntentosBorrar.setText(String.valueOf(this.juego.getIntentosBorrar()));
+		this.lblIntentosPEdir.setText(String.valueOf(this.juego.getIntentosPedir()));
+		this.txtMonedas.setText(String.valueOf(this.juego.getMonedas()));
+		this.txtMensaje.setText("DLC Mensaje: 11.99$");
+		
 		this.validate();
 		this.repaint();
 	}

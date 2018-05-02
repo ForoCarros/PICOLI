@@ -25,13 +25,14 @@ public class Lista<T> {
 	 * @param rango
 	 *            longitud a partir de inicio.
 	 */
-	public boolean comprobarColoresIguales() {
-		if (lista.size() > 3) {
-			if (lista.get(0).equals(lista.get(1)) && lista.get(0).equals(lista.get(2))) {
-				return true;
+	public boolean comprobarColoresIguales(int inicio, int rango) {
+		boolean cont = true;
+		for (int i = 0; i < rango - 1 && cont; i++) {
+			if(!lista.get(i).equals(lista.get(i + 1))) {
+				cont = false;
 			}
 		}
-		return false;
+		return cont;
 	}
 
 	/**
