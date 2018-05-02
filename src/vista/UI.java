@@ -18,8 +18,13 @@ import java.awt.Color;
 import javax.swing.JComboBox;
 import java.awt.FlowLayout;
 import java.awt.Cursor;
+import java.awt.Dimension;
+
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class UI extends JFrame {
 
@@ -41,11 +46,14 @@ public class UI extends JFrame {
 	protected JPanel panelColasDos;
 	protected JPanel panelLista;
 	protected JButton btnBorrarColor;
+	private JTextField txtMensaje;
+	private JTextField txtMonedas;
 
 	/**
 	 * Create the frame.
 	 */
 	public UI() {
+		setMinimumSize(new Dimension(700, 500));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 450);
 		contentPane = new JPanel();
@@ -54,10 +62,42 @@ public class UI extends JFrame {
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[] { 30, 0, 0, 60, 0, 60, 0, 0 };
-		gbl_contentPane.rowHeights = new int[] { 0, 0, 0, 0 };
-		gbl_contentPane.columnWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
-		gbl_contentPane.rowWeights = new double[] { 1.0, 1.0, 1.0, Double.MIN_VALUE };
+		gbl_contentPane.rowHeights = new int[] { 0, 0, 0, 0, 0, 0 };
+		gbl_contentPane.columnWeights = new double[] { 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE };
+		gbl_contentPane.rowWeights = new double[] { 1.0, 0.0, 1.0, 1.0, 0.0, Double.MIN_VALUE };
 		contentPane.setLayout(gbl_contentPane);
+		
+		JLabel lblTitulo = new JLabel("HOLA PABLO");
+		lblTitulo.setBorder(new LineBorder(new Color(0, 0, 0), 5, true));
+		lblTitulo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblTitulo.setForeground(Color.WHITE);
+		lblTitulo.setFont(new Font("Broadway", Font.BOLD, 50));
+		GridBagConstraints gbc_lblTitulo = new GridBagConstraints();
+		gbc_lblTitulo.gridwidth = 5;
+		gbc_lblTitulo.insets = new Insets(0, 0, 5, 5);
+		gbc_lblTitulo.gridx = 1;
+		gbc_lblTitulo.gridy = 0;
+		contentPane.add(lblTitulo, gbc_lblTitulo);
+		
+		JLabel lblMonedas = new JLabel("Monedas :");
+		lblMonedas.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblMonedas.setHorizontalAlignment(SwingConstants.LEFT);
+		GridBagConstraints gbc_lblMonedas = new GridBagConstraints();
+		gbc_lblMonedas.anchor = GridBagConstraints.EAST;
+		gbc_lblMonedas.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMonedas.gridx = 1;
+		gbc_lblMonedas.gridy = 1;
+		contentPane.add(lblMonedas, gbc_lblMonedas);
+		
+		txtMonedas = new JTextField();
+		txtMonedas.setEditable(false);
+		GridBagConstraints gbc_txtMonedas = new GridBagConstraints();
+		gbc_txtMonedas.insets = new Insets(0, 0, 5, 5);
+		gbc_txtMonedas.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtMonedas.gridx = 2;
+		gbc_txtMonedas.gridy = 1;
+		contentPane.add(txtMonedas, gbc_txtMonedas);
+		txtMonedas.setColumns(10);
 
 		panelAcciones = new JPanel();
 		panelAcciones.setBackground(new Color(128, 128, 128));
@@ -66,7 +106,7 @@ public class UI extends JFrame {
 		gbc_panelAcciones.insets = new Insets(0, 0, 5, 5);
 		gbc_panelAcciones.fill = GridBagConstraints.VERTICAL;
 		gbc_panelAcciones.gridx = 1;
-		gbc_panelAcciones.gridy = 1;
+		gbc_panelAcciones.gridy = 2;
 		contentPane.add(panelAcciones, gbc_panelAcciones);
 		GridBagLayout gbl_panelAcciones = new GridBagLayout();
 		gbl_panelAcciones.columnWidths = new int[] { 0, 0 };
@@ -125,7 +165,7 @@ public class UI extends JFrame {
 		gbc_panelColores.insets = new Insets(0, 0, 5, 5);
 		gbc_panelColores.fill = GridBagConstraints.BOTH;
 		gbc_panelColores.gridx = 2;
-		gbc_panelColores.gridy = 1;
+		gbc_panelColores.gridy = 2;
 		contentPane.add(panelColores, gbc_panelColores);
 		GridBagLayout gbl_panelColores = new GridBagLayout();
 		gbl_panelColores.columnWidths = new int[] { 0, 0, 0, 0 };
@@ -192,7 +232,7 @@ public class UI extends JFrame {
 		gbc_panelPila.insets = new Insets(0, 0, 5, 5);
 		gbc_panelPila.fill = GridBagConstraints.BOTH;
 		gbc_panelPila.gridx = 3;
-		gbc_panelPila.gridy = 1;
+		gbc_panelPila.gridy = 2;
 		contentPane.add(panelPila, gbc_panelPila);
 		panelPila.setLayout(new BoxLayout(panelPila, BoxLayout.Y_AXIS));
 
@@ -203,7 +243,7 @@ public class UI extends JFrame {
 		gbc_panelColas.insets = new Insets(0, 0, 5, 5);
 		gbc_panelColas.fill = GridBagConstraints.BOTH;
 		gbc_panelColas.gridx = 4;
-		gbc_panelColas.gridy = 1;
+		gbc_panelColas.gridy = 2;
 		contentPane.add(panelColas, gbc_panelColas);
 		GridBagLayout gbl_panelColas = new GridBagLayout();
 		gbl_panelColas.columnWidths = new int[] { 50, 50, 0 };
@@ -242,9 +282,30 @@ public class UI extends JFrame {
 		gbc_panelLista.insets = new Insets(0, 0, 5, 5);
 		gbc_panelLista.fill = GridBagConstraints.BOTH;
 		gbc_panelLista.gridx = 5;
-		gbc_panelLista.gridy = 1;
+		gbc_panelLista.gridy = 2;
 		contentPane.add(panelLista, gbc_panelLista);
 		panelLista.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+		JLabel lblMensaje = new JLabel("Mensaje :");
+		lblMensaje.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMensaje.setFont(new Font("Tahoma", Font.BOLD, 15));
+		GridBagConstraints gbc_lblMensaje = new GridBagConstraints();
+		gbc_lblMensaje.anchor = GridBagConstraints.EAST;
+		gbc_lblMensaje.insets = new Insets(0, 0, 5, 5);
+		gbc_lblMensaje.gridx = 1;
+		gbc_lblMensaje.gridy = 3;
+		contentPane.add(lblMensaje, gbc_lblMensaje);
+		
+		txtMensaje = new JTextField();
+		txtMensaje.setEditable(false);
+		GridBagConstraints gbc_txtMensaje = new GridBagConstraints();
+		gbc_txtMensaje.gridwidth = 4;
+		gbc_txtMensaje.insets = new Insets(0, 0, 5, 5);
+		gbc_txtMensaje.fill = GridBagConstraints.HORIZONTAL;
+		gbc_txtMensaje.gridx = 2;
+		gbc_txtMensaje.gridy = 3;
+		contentPane.add(txtMensaje, gbc_txtMensaje);
+		txtMensaje.setColumns(10);
 	}
 
 }
