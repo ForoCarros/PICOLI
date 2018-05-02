@@ -72,6 +72,7 @@ public class ParaUi extends UI {
 			this.panelLista.add(new Elemento(this.datos.getLista().getListaColores().get(i).getColor()));
 		}
 		this.validate();
+		this.repaint();
 	}
 
 	private void asignarListeners() {
