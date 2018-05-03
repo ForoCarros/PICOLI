@@ -29,19 +29,14 @@ public class Lista<T> {
 		ArrayList indices = new ArrayList<>();
 		for (int i = inicio; i < fin - rango; i++) {
 			boolean iguales = true;
-			for (int j = i; j < i + rango; j++) {
-				if (!this.lista.get(i).equals(this.lista.get(j))) {
-					iguales = false;
-				}
+			for (int j = 0; j < rango && iguales; j++) {
+				iguales = this.lista.get(i).equals(this.lista.get(i + j));
+				System.out.println(this.lista.get(i) + " - " + this.lista.get(i + 1) + " --> " + iguales);
 			}
 			if (iguales) {
 				indices.add(i);
-				indices.add(i + 1);
-				indices.add(i + 2);
-				i+=2;
 			}
 		}
-		System.out.println(indices);
 		return indices;
 	}
 

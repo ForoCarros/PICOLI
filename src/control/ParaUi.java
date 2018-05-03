@@ -88,19 +88,18 @@ public class ParaUi extends UI {
 
 		ArrayList<Colores> historial = this.juego.getDatos().getHistorial()
 				.comprobarHistorial(this.juego.getDatos().getCola());
-		System.out.println(historial);
 		Component[] botones = this.panelColores.getComponents();
 		for (int i = 0; i < botones.length; i++) {
-			botones[i].setEnabled(false);
+			// botones[i].setEnabled(false);
 		}
 		for (int i = 0; i < historial.size(); i++) {
 			for (int j = 0; j < botones.length; j++) {
 				if (historial.get(i).toString().equals(botones[j].getName())) {
-					System.out.println(historial.get(i).toString() + " - " + botones[j].getName());
 					botones[j].setEnabled(true);
 				}
 			}
 		}
+		System.out.println(this.datos.getLista().getListaColores());
 	}
 
 	private void asignarListeners() {

@@ -31,6 +31,7 @@ public class Borrar implements Borrable {
 			}
 			lista.removeAll(listaRemover);
 			paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBorrar());
+			this.paraui.getJuego().comprobarDatosLista();
 		}
 	}
 

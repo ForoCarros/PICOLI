@@ -84,20 +84,30 @@ public class Juego<T> implements Jugable<T> {
 	/**
 	 * Se comprueba diferentes situaciones de la lista que pueden acabar el juego
 	 */
-	private void comprobarDatosLista() {
+	public void comprobarDatosLista() {
 		if (datos.getLista().getListaColores().size() >= 3) {
-			ArrayList<Integer> coloresBorrar = this.datos.getColoresBorrar();
-			coloresBorrar = this.datos.getLista().comprobarColoresIguales(0,
-					this.datos.getLista().getListaColores().size(), 3);
-			System.out.println(coloresBorrar);
-			borrarColores(coloresBorrar);
-			coloresBorrar.clear();
+			borrarColores();
 		}
 	}
 
-	private void borrarColores(ArrayList<Integer> indices) {
-		for (int i = 0; i < indices.size(); i++) {
-				this.datos.getLista().borrarColor(indices.get(i));
+	// A V I S O : H A R D C O D E O M U Y F U E R T E
+	// A V I S O : H A R D C O D E O M U Y F U E R T E
+	// A V I S O : H A R D C O D E O M U Y F U E R T E
+	// A V I S O : H A R D C O D E O M U Y F U E R T E
+	// A V I S O : H A R D C O D E O M U Y F U E R T E
+	// A V I S O : H A R D C O D E O M U Y F U E R T E
+	private void borrarColores() {
+		ArrayList<Colores> lista = this.datos.getLista().getListaColores();
+		for (int i = 0; i < lista.size() - 3; i++) {
+			if (lista.get(i) == lista.get(i + 1) && lista.get(i + 1) == lista.get(i + 2)) {
+				System.out.println("BORRAR: " + i);
+				System.out.println(this.datos.getLista().getListaColores());
+				this.datos.getLista().borrarColor(i);
+				this.datos.getLista().borrarColor(i);
+				this.datos.getLista().borrarColor(i);
+				System.out.println(this.datos.getLista().getListaColores());
+				incrementarMonedas();
+			}
 		}
 	}
 
