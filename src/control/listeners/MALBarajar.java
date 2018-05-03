@@ -11,6 +11,7 @@ import modelo.Datos;
 import utiles.Constantes;
 
 public class MALBarajar implements ActionListener {
+	
 	private ParaUi paraUi;
 	private Datos datos;
 	private Barajar barajar;

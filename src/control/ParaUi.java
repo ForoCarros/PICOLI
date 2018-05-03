@@ -148,14 +148,23 @@ public class ParaUi extends UI {
 		return false;
 	}
 
+	/**
+	 * ponemos un mensaje al pulsar la tecla pedir
+	 */
 	public void getTextoPedir() {
 		txtMensaje.setText("HAS PULSADO PEDIR: te quedan " + this.juego.getIntentosPedir() + " intentos");
 	}
 
+	/**
+	 * ponemos un mensaje al pulsar la tecla borrar
+	 */
 	public void getTextoBorrar() {
 		txtMensaje.setText("HAS PULSADO BORRAR: te quedan " + this.juego.getIntentosBorrar() + " intentos");
 	}
 
+	/**
+	 * ponemos un mensaje de error al pulsar una tecla sin intentos
+	 */
 	public void getTextoError() {
 		txtMensaje.setText("Ya no tienes mas intentos");
 

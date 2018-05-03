@@ -35,6 +35,13 @@ public class Borrar implements Borrable {
 		}
 	}
 
+	/**
+	 * comprueba el color elegido
+	 * 
+	 * @param color
+	 * 
+	 * @return
+	 */
 	private Colores comprobarColor(String color) {
 		Colores colorDummy = null;
 		switch (color) {

@@ -96,7 +96,7 @@ public class Juego<T> implements Jugable<T> {
 	}
 
 	/**
-	 * Se comprueba diferentes situaciones de la lista que pueden acabar el juego
+	 * Comprueba si la lista es mayoe de 3 y comprueba si puede borrar 3 colores juntos en toda ella
 	 */
 	public void comprobarDatosLista() {
 		if (datos.getLista().getListaColores().size() >= 3) {

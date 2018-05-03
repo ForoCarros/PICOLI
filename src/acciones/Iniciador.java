@@ -6,7 +6,7 @@ import utiles.Constantes;
 
 public class Iniciador implements Iniciable{
 	
-	Datos datos;
+	private Datos datos;
 
 	public Iniciador(Datos datos) {
 		super();
