@@ -1,7 +1,10 @@
 package control;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import acciones.Barajar;
@@ -79,9 +82,25 @@ public class ParaUi extends UI {
 		this.lblIntentosPEdir.setText(String.valueOf(this.juego.getIntentosPedir()));
 		this.txtMonedas.setText(String.valueOf(this.juego.getMonedas()));
 		this.txtMensaje.setText("DLC Mensaje: 11.99$");
-		
+
 		this.validate();
 		this.repaint();
+
+		ArrayList<Colores> historial = this.juego.getDatos().getHistorial()
+				.comprobarHistorial(this.juego.getDatos().getCola());
+		System.out.println(historial);
+		Component[] botones = this.panelColores.getComponents();
+		for (int i = 0; i < botones.length; i++) {
+			botones[i].setEnabled(false);
+		}
+		for (int i = 0; i < historial.size(); i++) {
+			for (int j = 0; j < botones.length; j++) {
+				if (historial.get(i).toString().equals(botones[j].getName())) {
+					System.out.println(historial.get(i).toString() + " - " + botones[j].getName());
+					botones[j].setEnabled(true);
+				}
+			}
+		}
 	}
 
 	private void asignarListeners() {
@@ -107,23 +126,26 @@ public class ParaUi extends UI {
 	public Object dameColorCombo() {
 		return this.comboColores.getSelectedItem();
 	}
-	
+
 	/**
 	 * necesitamos el txtmensaje para meterlo en algun lado???
+	 * 
 	 * @return
 	 */
 	public JTextField dameTexto() {
 		return this.txtMensaje;
 	}
-	
+
 	/**
 	 * Comprueba si has llegado al total de monedas o si la lista esta llena
 	 * 
 	 */
 	public void finalizarJuego() {
-		if (this.juego.comprobarGanador()) txtMensaje.setText("monedas maximas!, HAS GANADO");
-		if (this.juego.comprobarListaLlena()) txtMensaje.setText("lista llena, HAS PERDIDO");
+		if (this.juego.comprobarGanador())
+			txtMensaje.setText("monedas maximas!, HAS GANADO");
+		if (this.juego.comprobarListaLlena())
+			txtMensaje.setText("lista llena, HAS PERDIDO");
 		// deberiamos poner algo para que el juego se interrumpiese.
 	}
-	
+
 }

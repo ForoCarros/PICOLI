@@ -34,6 +34,10 @@ public class UI extends JFrame {
 	protected JButton btnBarajarPilas;
 	protected JComboBox comboColores;
 	protected JPanel panelColores;
+	public JPanel getPanelColores() {
+		return panelColores;
+	}
+
 	protected JButton btnAmarillo;
 	protected JButton btnRojo;
 	protected JButton btnVerde;
