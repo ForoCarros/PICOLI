@@ -57,7 +57,6 @@ public class ParaUi extends UI {
 		this.listenerSeleccionar = new MALSeleccionar(this, this.datos, this.seleccionar);
 		asignarListeners();
 		actualizarVentana();
-		finalizarJuego();
 	}
 
 	public void actualizarVentana() {
@@ -81,7 +80,6 @@ public class ParaUi extends UI {
 		this.lblIntentosBorrar.setText(String.valueOf(this.juego.getIntentosBorrar()));
 		this.lblIntentosPEdir.setText(String.valueOf(this.juego.getIntentosPedir()));
 		this.txtMonedas.setText(String.valueOf(this.juego.getMonedas()));
-		this.txtMensaje.setText("DLC Mensaje: 11.99$");
 
 		this.validate();
 		this.repaint();
@@ -90,7 +88,7 @@ public class ParaUi extends UI {
 				.comprobarHistorial(this.juego.getDatos().getCola());
 		Component[] botones = this.panelColores.getComponents();
 		for (int i = 0; i < botones.length; i++) {
-			// botones[i].setEnabled(false);
+			botones[i].setEnabled(false);
 		}
 		for (int i = 0; i < historial.size(); i++) {
 			for (int j = 0; j < botones.length; j++) {
@@ -99,7 +97,6 @@ public class ParaUi extends UI {
 				}
 			}
 		}
-		System.out.println(this.datos.getLista().getListaColores());
 	}
 
 	private void asignarListeners() {
@@ -127,24 +124,49 @@ public class ParaUi extends UI {
 	}
 
 	/**
-	 * necesitamos el txtmensaje para meterlo en algun lado???
-	 * 
-	 * @return
+	 * ponemos un mensaje al pulsar la tecla barajar
 	 */
-	public JTextField dameTexto() {
-		return this.txtMensaje;
+	public void getTextoBarajar() {
+		txtMensaje.setText("HAS PULSADO BARAJAR: te quedan " + this.juego.getIntentosBarajar() + " intentos");
 	}
 
 	/**
 	 * Comprueba si has llegado al total de monedas o si la lista esta llena
 	 * 
+	 * @return
+	 * 
 	 */
-	public void finalizarJuego() {
-		if (this.juego.comprobarGanador())
+	public boolean finalizarJuego() {
+		if (this.juego.comprobarGanador()) {
 			txtMensaje.setText("monedas maximas!, HAS GANADO");
-		if (this.juego.comprobarListaLlena())
+			return true;
+		}
+		if (this.juego.comprobarListaLlena()) {
 			txtMensaje.setText("lista llena, HAS PERDIDO");
-		// deberiamos poner algo para que el juego se interrumpiese.
+			return true;
+		}
+		return false;
 	}
 
+	/**
+	 * ponemos un mensaje al pulsar la tecla pedir
+	 */
+	public void getTextoPedir() {
+		txtMensaje.setText("HAS PULSADO PEDIR: te quedan " + this.juego.getIntentosPedir() + " intentos");
+	}
+
+	/**
+	 * ponemos un mensaje al pulsar la tecla borrar
+	 */
+	public void getTextoBorrar() {
+		txtMensaje.setText("HAS PULSADO BORRAR: te quedan " + this.juego.getIntentosBorrar() + " intentos");
+	}
+
+	/**
+	 * ponemos un mensaje de error al pulsar una tecla sin intentos
+	 */
+	public void getTextoError() {
+		txtMensaje.setText("Ya no tienes mas intentos");
+
+	}
 }

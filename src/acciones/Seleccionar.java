@@ -22,6 +22,13 @@ public class Seleccionar implements Seleccionable {
 		paraui.getJuego().realizarJugada(colorDummy);
 	}
 
+	/**
+	 * Comprueba el color seleccionado
+	 * 
+	 * @param color
+	 * 
+	 * @return
+	 */
 	private Colores comprobarColor(String color) {
 		Colores colorDummy=null;
 		switch (color) {

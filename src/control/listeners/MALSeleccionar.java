@@ -24,9 +24,10 @@ public class MALSeleccionar implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		paraUi.turno++;
-		this.datos.getHistorial().comprobarHistorial(this.datos.getCola());
-		this.seleccionar.seleccionarColor(((JButton) e.getSource()).getName());
-		this.paraUi.actualizarVentana();
+		if (!(this.paraUi.finalizarJuego())) {
+			this.datos.getHistorial().comprobarHistorial(this.datos.getCola());
+			this.seleccionar.seleccionarColor(((JButton) e.getSource()).getName());
+			this.paraUi.actualizarVentana();
+		}
 	}
 }

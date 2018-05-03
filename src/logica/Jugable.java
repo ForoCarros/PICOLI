@@ -6,8 +6,6 @@ public interface Jugable<T> {
 	/**
 	 * Disminuye una unidad el valor introducido.
 	 * 
-	 * @param c
-	 *            valor a disminuir.
 	 */
 	public void disminuirIntentos(int c);
 

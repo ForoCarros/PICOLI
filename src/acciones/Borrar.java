@@ -30,11 +30,18 @@ public class Borrar implements Borrable {
 				}
 			}
 			lista.removeAll(listaRemover);
-			paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBorrar());
+			paraui.getJuego().disminuirIntentosBorrar();
 			this.paraui.getJuego().comprobarDatosLista();
 		}
 	}
 
+	/**
+	 * comprueba el color elegido
+	 * 
+	 * @param color
+	 * 
+	 * @return
+	 */
 	private Colores comprobarColor(String color) {
 		Colores colorDummy = null;
 		switch (color) {
@@ -55,5 +62,15 @@ public class Borrar implements Borrable {
 			break;
 		}
 		return colorDummy;
+	}
+	
+	/**
+	 * Comprueba los intentos de borrar
+	 * @return
+	 */
+	public boolean comprobarIntentos() {
+		if (this.paraui.getJuego().getIntentosBorrar() > 0)
+			return true;
+		return false;
 	}
 }
