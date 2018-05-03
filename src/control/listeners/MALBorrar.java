@@ -9,22 +9,27 @@ import modelo.Colores;
 import modelo.Datos;
 
 public class MALBorrar implements ActionListener {
-	
-	private ParaUi paraUi;
+
+	private ParaUi paraui;
 	private Datos datos;
 	private Borrar borrar;
 
-	public MALBorrar(ParaUi paraUi, Datos datos, Borrar borrar) {
+	public MALBorrar(ParaUi paraui, Datos datos, Borrar borrar) {
 		super();
-		this.paraUi = paraUi;
+		this.paraui = paraui;
 		this.datos = datos;
 		this.borrar = borrar;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.borrar.buscarColor(this.paraUi.dameColorCombo().toString());
-		this.paraUi.actualizarVentana();
+		if (this.borrar.comprobarIntentos() && !(this.paraui.finalizarJuego())) {
+			this.borrar.buscarColor(this.paraui.dameColorCombo().toString());
+			this.paraui.getTextoBorrar();
+			this.paraui.actualizarVentana();
+		}else {
+			this.paraui.getTextoError();
+		}
 	}
 
 }

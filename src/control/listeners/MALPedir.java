@@ -7,8 +7,8 @@ import acciones.Pedir;
 import control.ParaUi;
 import modelo.Datos;
 
-public class MALPedir implements ActionListener{
-	
+public class MALPedir implements ActionListener {
+
 	private ParaUi paraUi;
 	private Datos datos;
 	private Pedir pedir;
@@ -22,7 +22,12 @@ public class MALPedir implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.pedir.pedirColor();
-		
+		if (this.pedir.comprobarIntentos() && !(this.paraUi.finalizarJuego())) {
+			this.pedir.pedirColor();
+			this.paraUi.getTextoPedir();
+			this.paraUi.actualizarVentana();
+		} else {
+			this.paraUi.getTextoError();
+		}
 	}
 }

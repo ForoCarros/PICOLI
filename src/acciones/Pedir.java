@@ -25,7 +25,17 @@ public class Pedir implements Pedable {
 	@Override
 	public void pedirColor() {
 		Colores color = (Colores) paraui.dameColorCombo();
-		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosPedir());
+		paraui.getJuego().disminuirIntentosPedir();
 		paraui.getJuego().realizarJugada(color);
+	}
+
+	/**
+	 * Comprueba los intentos de pedir
+	 * @return
+	 */
+	public boolean comprobarIntentos() {
+		if (this.paraui.getJuego().getIntentosPedir() > 0)
+			return true;
+		return false;
 	}
 }

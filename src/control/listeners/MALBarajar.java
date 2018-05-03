@@ -8,6 +8,7 @@ import acciones.Barajar;
 import control.ParaUi;
 import modelo.Colores;
 import modelo.Datos;
+import utiles.Constantes;
 
 public class MALBarajar implements ActionListener {
 	private ParaUi paraUi;
@@ -23,10 +24,14 @@ public class MALBarajar implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		this.barajar.volcarPilasEnLista();
-		this.barajar.barajar();
-		this.barajar.volcarListaEnPilas();
-		this.paraUi.actualizarVentana();
+		if (this.barajar.comprobarIntentos() && !(this.paraUi.finalizarJuego())) {
+			this.barajar.volcarPilasEnLista();
+			this.barajar.barajar();
+			this.barajar.volcarListaEnPilas();
+			this.paraUi.getTextoBarajar();
+			this.paraUi.actualizarVentana();
+		} else {
+			this.paraUi.getTextoError();
+		}
 	}
-
 }

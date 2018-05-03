@@ -16,6 +16,8 @@ public class Juego<T> implements Jugable<T> {
 	private int intentosBorrar = Constantes.PETICION_BORRAR_MAX;
 	private int intentosPedir = Constantes.PETICION_COLOR_MAX;
 	private int intentosBarajar = Constantes.PETICION_BARAJAR_MAX;
+	private int tamanoListaMax = Constantes.TAMANO_LISTA;
+	private int monedasMax = Constantes.CANTIDAD_MAX_MONEDAS;
 	private int monedas = 0;
 
 	public Juego(Datos datos) {
@@ -29,7 +31,7 @@ public class Juego<T> implements Jugable<T> {
 
 	@Override
 	public boolean comprobarGanador() {
-		if (monedas >= Constantes.CANTIDAD_MAX_MONEDAS) {
+		if (monedas >= monedasMax) {
 			return true;
 		}
 		return false;
@@ -42,7 +44,7 @@ public class Juego<T> implements Jugable<T> {
 
 	@Override
 	public boolean comprobarListaLlena() {
-		if (datos.getLista().getListaColores().size() >= Constantes.TAMANO_LISTA) {
+		if (datos.getLista().getListaColores().size() >= tamanoListaMax) {
 			return true;
 		}
 		return false;
@@ -66,6 +68,18 @@ public class Juego<T> implements Jugable<T> {
 
 	public int getIntentosBarajar() {
 		return intentosBarajar;
+	}
+	
+	public void disminuirIntentosBarajar() {
+		intentosBarajar--;
+	}
+	
+	public void disminuirIntentosPedir() {
+		intentosPedir--;
+	}
+	
+	public void disminuirIntentosBorrar() {
+		intentosBorrar--;
 	}
 
 	/**
@@ -91,21 +105,14 @@ public class Juego<T> implements Jugable<T> {
 	}
 
 	// A V I S O : H A R D C O D E O M U Y F U E R T E
-	// A V I S O : H A R D C O D E O M U Y F U E R T E
-	// A V I S O : H A R D C O D E O M U Y F U E R T E
-	// A V I S O : H A R D C O D E O M U Y F U E R T E
-	// A V I S O : H A R D C O D E O M U Y F U E R T E
-	// A V I S O : H A R D C O D E O M U Y F U E R T E
+
 	private void borrarColores() {
 		ArrayList<Colores> lista = this.datos.getLista().getListaColores();
 		for (int i = 0; i < lista.size() - 3; i++) {
 			if (lista.get(i) == lista.get(i + 1) && lista.get(i + 1) == lista.get(i + 2)) {
-				System.out.println("BORRAR: " + i);
-				System.out.println(this.datos.getLista().getListaColores());
 				this.datos.getLista().borrarColor(i);
 				this.datos.getLista().borrarColor(i);
 				this.datos.getLista().borrarColor(i);
-				System.out.println(this.datos.getLista().getListaColores());
 				incrementarMonedas();
 			}
 		}

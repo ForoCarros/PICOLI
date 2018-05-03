@@ -49,9 +49,6 @@ public class Barajar implements Barajable {
 		Pila<Colores> pilaOne = this.paraui.getJuego().getDatos().getPilaUno();
 		Pila<Colores> pilaTwo = this.paraui.getJuego().getDatos().getPilaDos();
 
-		
-		// algo pasa aqui.... no se cambian las primeras posiciones, las demas si se
-		// cambian de los colores de pilas
 		for (int i = 0; i < listaDummy.size(); i++) {
 			if (i % 2 == 0) {
 				pilaOne.introducir(listaDummy.get(i));
@@ -60,6 +57,16 @@ public class Barajar implements Barajable {
 			}
 		}
 		listaDummy.clear();
-		paraui.getJuego().disminuirIntentos(paraui.getJuego().getIntentosBarajar());
+		this.paraui.getJuego().disminuirIntentosBarajar();
+	}
+
+	/**
+	 * Comprueba si te quedan intentos para barajar las pilas
+	 * @return
+	 */
+	public boolean comprobarIntentos() {
+		if (this.paraui.getJuego().getIntentosBarajar() > 0)
+			return true;
+		return false;
 	}
 }
