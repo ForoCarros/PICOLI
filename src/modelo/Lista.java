@@ -25,14 +25,24 @@ public class Lista<T> {
 	 * @param rango
 	 *            longitud a partir de inicio.
 	 */
-	public boolean comprobarColoresIguales(int inicio, int rango) {
-		boolean cont = true;
-		if (this.lista.get(0).equals(this.lista.get(1)) && this.lista.get(1).equals(this.lista.get(2))) {
-			cont = true;
-		} else {
-			cont = false;
+	public ArrayList<Integer> comprobarColoresIguales(int inicio, int fin, int rango) {
+		ArrayList indices = new ArrayList<>();
+		for (int i = inicio; i < fin - rango; i++) {
+			boolean iguales = true;
+			for (int j = i; j < i + rango; j++) {
+				if (!this.lista.get(i).equals(this.lista.get(j))) {
+					iguales = false;
+				}
+			}
+			if (iguales) {
+				indices.add(i);
+				indices.add(i + 1);
+				indices.add(i + 2);
+				i+=2;
+			}
 		}
-		return cont;
+		System.out.println(indices);
+		return indices;
 	}
 
 	/**
@@ -59,9 +69,7 @@ public class Lista<T> {
 	 * Al comprobar que los tres primeros colores son iguales hay que eliminarlos de
 	 * la lista
 	 */
-	public void borrarTresPrimeros() {
-		for (int i = 0; i < 3; i++) {
-			lista.remove(0);
-		}
+	public void borrarColor(int indice) {
+		this.lista.remove(indice);
 	}
 }

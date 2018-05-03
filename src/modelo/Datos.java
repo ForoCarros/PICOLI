@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class Datos {
 
 	private Cola<Colores> cola;
@@ -8,6 +10,7 @@ public class Datos {
 	private Pila<Colores> pilaDos;
 	private Historial<Colores> historial;
 	private Lista<Colores> listaAuxiliar;
+	private ArrayList<Integer> coloresBorrar;
 
 	public Datos() {
 		super();
@@ -17,6 +20,11 @@ public class Datos {
 		this.pilaDos = new Pila<>();
 		this.historial = new Historial<>();
 		this.listaAuxiliar = new Lista<>();
+		this.coloresBorrar = new ArrayList<>();
+	}
+
+	public ArrayList<Integer> getColoresBorrar() {
+		return coloresBorrar;
 	}
 
 	public Cola<Colores> getCola() {

@@ -6,6 +6,7 @@ import java.util.Collections;
 
 import modelo.Colores;
 import modelo.Datos;
+import modelo.Lista;
 import modelo.Pila;
 import utiles.Constantes;
 
@@ -85,10 +86,18 @@ public class Juego<T> implements Jugable<T> {
 	 */
 	private void comprobarDatosLista() {
 		if (datos.getLista().getListaColores().size() >= 3) {
-			if (datos.getLista().comprobarColoresIguales(0, 2)) {
-				datos.getLista().borrarTresPrimeros();
-				incrementarMonedas();
-			}
+			ArrayList<Integer> coloresBorrar = this.datos.getColoresBorrar();
+			coloresBorrar = this.datos.getLista().comprobarColoresIguales(0,
+					this.datos.getLista().getListaColores().size(), 3);
+			System.out.println(coloresBorrar);
+			borrarColores(coloresBorrar);
+			coloresBorrar.clear();
+		}
+	}
+
+	private void borrarColores(ArrayList<Integer> indices) {
+		for (int i = 0; i < indices.size(); i++) {
+				this.datos.getLista().borrarColor(indices.get(i));
 		}
 	}
 
